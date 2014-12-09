@@ -22,6 +22,33 @@
         exit;
     }
 
+    // Assign custom function to fetch variable values
+    if ( !function_exists( 'inkid_var' ) ) :
+        function inkid_var( $name, $key = false ) {
+          global $redux_inkid;
+          $options = $redux_inkid;
+        
+          // Set this to your preferred default value
+          $var = '';
+        
+          if ( empty( $name ) && !empty( $options ) ) :
+            $var = $options;
+          else :
+            if ( !empty( $options[$name] ) ) :
+              if ( !empty( $key ) && !empty( $options[$name][$key] ) && $key !== true ) :
+                $var = $options[$name][$key];
+              elseif (  !empty( $key ) && empty( $options[$name][$key] ) && $key !== true  ) :
+                $var = '0';
+              else :
+                $var = $options[$name];
+              endif;
+            endif;
+          endif;
+        
+          return $var;
+        }
+    endif;
+
     // Fix for the GT3 page builder: http://www.gt3themes.com/wordpress-gt3-page-builder-plugin/
     /** @global string $pagenow */
     if ( has_action( 'ecpt_field_options_' ) ) {

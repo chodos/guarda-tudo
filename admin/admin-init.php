@@ -16,3 +16,11 @@ if (file_exists(dirname(__FILE__).'/redux-framework/ReduxCore/framework.php')) {
 if (file_exists(dirname(__FILE__).'/options-init.php')) {
     require_once( dirname(__FILE__).'/options-init.php' );
 }
+
+
+if (file_exists(dirname(__FILE__).'/options/00.variable.php')) {
+    require_once( dirname(__FILE__).'/options/00.variable.php' );
+}
+if (file_exists(dirname(__FILE__).'/options/01.theme-setup.php')) {
+    require_once( dirname(__FILE__).'/options/01.theme-setup.php' );
+}

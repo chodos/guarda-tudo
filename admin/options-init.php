@@ -235,6 +235,345 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
             }
 
             // ACTUAL DECLARATION OF SECTIONS
+             $this->sections[] = array(
+                'title'     => __('Configurações Gerais', 'redux-framework-demo'),
+                'desc'      => __('Configure opções de cabeçalho, rodapé e página inicial', 'redux-framework-demo'),
+                'icon'      => 'el-icon-home',
+                // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                'fields'    => array(
+
+                    array(
+                        'id'        => 'section-header-start',
+                        'type'      => 'section',
+                        'title'     => __('Cabeçalho', 'redux-framework-demo'),
+                        'subtitle'  => __('Configure as opções disponíves para o topo da página.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-background-header',
+                        'type'      => 'media',
+                        'preview'   => false,
+                        'title'     => __('Plano de fundo do cabeçalho', 'redux-framework-demo'),
+                        'desc'      => __('Escolha uma imagem para o background do topo da página.', 'redux-framework-demo'),
+                        'subtitle'  => __('Envia uma imagem do seu computador ou da biblioteca do Wordpress.', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-color-header',
+                        'type'      => 'color',
+                        'title'     => __('Cor de fundo do cabeçalho', 'redux-framework-demo'),
+                        'subtitle'  => __('Escolha uma cor de fundo para o topo da página no caso de não exibir uma imagem.', 'redux-framework-demo'),
+                        'default'   => '#dd9933',
+                        'validate'  => 'color',
+                    ),
+
+                    array(
+                        'id'        => 'section-header-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'section-layout-home-start',
+                        'type'      => 'section',
+                        'title'     => __('Seções da Home', 'redux-framework-demo'),
+                        'subtitle'  => __('Ative e desative seções da página inicial.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-layout-sections-home',
+                        'type'      => 'sorter',
+                        'title'     => 'Gerenciador da Home',
+                        'desc'      => 'Defina quais seções deseja manter ativas na página inicial.',
+                        'compiler'  => 'true',
+                        'options'   => array(
+                            'enabled'   => array(
+                                'whatvideo'         => 'O que é & Vídeo',
+                                'selopromotion'     => 'Selo & Promoção',
+                                'paracle'           => 'Para...',
+                            ),
+                            'disabled'  => array(
+                            ),
+                        ),
+                    ),
+
+                    array(
+                        'id'        => 'opt-layout-sections-what-video',
+                        'type'      => 'sorter',
+                        'title'     => 'Seção "O que é & Vídeo"',
+                        'desc'      => 'Defina qual conteúdo deseja exibir',
+                        'compiler'  => 'true',
+                        'options'   => array(
+                            'enabled'   => array(
+                                'what'         => 'O que é',
+                                'selo'         => 'Selo',
+                                'video'        => 'Vídeo',
+                            ),
+                            'disabled'  => array(
+                            ),
+                        ),
+                    ),
+
+                    array(
+                        'id'        => 'section-layout-home-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'section-footer-start',
+                        'type'      => 'section',
+                        'title'     => __('Rodapé', 'redux-framework-demo'),
+                        'subtitle'  => __('Configure as opções disponíves para o rodapé da página.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-background-footer',
+                        'type'      => 'media',
+                        'preview'   => false,
+                        'title'     => __('Plano de fundo do rodapé', 'redux-framework-demo'),
+                        'desc'      => __('Escolha uma imagem para o background do rodapé da página.', 'redux-framework-demo'),
+                        'subtitle'  => __('Envia uma imagem do seu computador ou da biblioteca do Wordpress.', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-color-footer',
+                        'type'      => 'color',
+                        'title'     => __('Cor de fundo do rodapé', 'redux-framework-demo'),
+                        'subtitle'  => __('Escolha uma cor de fundo para o rodapé da página no caso de não exibir uma imagem.', 'redux-framework-demo'),
+                        'default'   => '#dd9933',
+                        'validate'  => 'color',
+                    ),
+
+
+                    array(
+                        'id'        => 'section-footer-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                ),
+            );
+
+            $this->sections[] = array(
+                'title'     => __('Unidades', 'redux-framework-demo'),
+                'desc'      => __('Defina aqui os dados de configuração de cada unidade, essas informações serão utlizadas e exibidas no site.', 'redux-framework-demo'),
+                'icon'      => 'el-icon-screenshot',
+                // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                'fields'    => array(
+
+                    array(
+                        'id'        => 'section-saopaulo-start',
+                        'type'      => 'section',
+                        'title'     => __('São Paulo', 'redux-framework-demo'),
+                        'subtitle'  => __('Configure e mantenha atualizada as informações para São Paulo.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-endereco-saopaulo',
+                        'type'      => 'text',
+                        'title'     => __('Endereço', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o endereço da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: Rua Clodomiro de Oliveira, 200 - Morumbi', 'redux-framework-demo'),
+                        'msg'       => 'Entre com o endereço da unidade',
+                    ),
+
+                    array(
+                        'id'        => 'opt-telefone-saopaulo',
+                        'type'      => 'sortable',
+                        'title'     => __('Telefone', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o telefone da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: (11) 2233-4578', 'redux-framework-demo'),
+                        'options'   => array(
+                            '1' => 'Telefone 1',
+                            '2' => 'Telefone 2',
+                        )
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-contato-saopaulo',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Contato', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de contato para a unidade',
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-reserva-saopaulo',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de reserva para a unidade',
+                    ),
+
+                    array(
+                        'id'        => 'section-saopaulo-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'section-campinas-start',
+                        'type'      => 'section',
+                        'title'     => __('Campinas', 'redux-framework-demo'),
+                        'subtitle'  => __('Configure e mantenha atualizada as informações para Campinas.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-endereco-campinas',
+                        'type'      => 'text',
+                        'title'     => __('Endereço', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o endereço da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: Rua Clodomiro de Oliveira, 200 - Morumbi', 'redux-framework-demo'),
+                        'msg'       => 'Entre com o endereço da unidade',
+                    ),
+
+                   array(
+                        'id'        => 'opt-telefone-campinas',
+                        'type'      => 'sortable',
+                        'title'     => __('Telefone', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o telefone da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: (11) 2233-4578', 'redux-framework-demo'),
+                        'options'   => array(
+                            '1' => 'Telefone 1',
+                            '2' => 'Telefone 2',
+                        )
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-contato-campinas',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Contato', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de contato para a unidade',
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-reserva-campinas',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de reserva para a unidade',
+                    ),
+
+                     array(
+                        'id'        => 'section-campinas-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'section-rio-start',
+                        'type'      => 'section',
+                        'title'     => __('Rio de Janeiro', 'redux-framework-demo'),
+                        'subtitle'  => __('Configure e mantenha atualizada as informações para Rio de Janeiro.', 'redux-framework-demo'),
+                        'indent'    => true // Indent all options below until the next 'section' option is set.
+                    ),
+
+                    array(
+                        'id'        => 'opt-endereco-rio',
+                        'type'      => 'text',
+                        'title'     => __('Endereço', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o endereço da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: Rua Clodomiro de Oliveira, 200 - Morumbi', 'redux-framework-demo'),
+                        'msg'       => 'Entre com o endereço da unidade',
+                    ),
+
+                     array(
+                        'id'        => 'opt-telefone-rio',
+                        'type'      => 'sortable',
+                        'title'     => __('Telefone', 'redux-framework-demo'),
+                        'subtitle'  => __('Digite o telefone da unidade.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: (11) 2233-4578', 'redux-framework-demo'),
+                        'options'   => array(
+                            '1' => 'Telefone 1',
+                            '2' => 'Telefone 2',
+                        )
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-contato-rio',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Contato', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de contato para a unidade',
+                    ),
+
+                    array(
+                        'id'        => 'opt-mail-reserva-rio',
+                        'type'      => 'text',
+                        'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
+                        'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
+                        'msg'       => 'Entre com um e-mail de reserva para a unidade',
+                    ),
+
+                    array(
+                        'id'        => 'section-rio-end',
+                        'type'      => 'section',
+                        'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                ),
+            );
+
+            $this->sections[] = array(
+                'title'     => __('Redes Sociais', 'redux-framework-demo'),
+                'desc'      => __('Preencha os endereços das redes sociais.', 'redux-framework-demo'),
+                'icon'      => 'el-icon-group-alt',
+                // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                'fields'    => array(
+
+                    array(
+                        'id'        => 'opt-social-facebook',
+                        'type'      => 'text',
+                        'title'     => __('Facebook', 'redux-framework-demo'),
+                        'subtitle'  => __('Entre com o endereço da página no Facebook', 'redux-framework-demo'),
+                        'validate' => 'url',
+                        'msg'       => 'Entre com um endereço válido',
+                    ),
+
+                    array(
+                        'id'        => 'opt-social-twitter',
+                        'type'      => 'text',
+                        'title'     => __('Twitter', 'redux-framework-demo'),
+                        'subtitle'  => __('Entre com o endereço da página no Twitter', 'redux-framework-demo'),
+                        'validate' => 'url',
+                        'msg'       => 'Entre com um endereço válido',
+                    ),
+
+                    array(
+                        'id'        => 'opt-social-google',
+                        'type'      => 'text',
+                        'title'     => __('Google+', 'redux-framework-demo'),
+                        'subtitle'  => __('Entre com o endereço da página no Google+', 'redux-framework-demo'),
+                        'validate' => 'url',
+                        'msg'       => 'Entre com um endereço válido',
+                    ),
+
+                    array(
+                        'id'        => 'opt-social-linkedin',
+                        'type'      => 'text',
+                        'title'     => __('LinkedIn', 'redux-framework-demo'),
+                        'subtitle'  => __('Entre com o endereço da página no LinkedIn', 'redux-framework-demo'),
+                        'validate' => 'url',
+                        'msg'       => 'Entre com um endereço válido',
+                    ),
+
+                ),
+
+            );
+
             $this->sections[] = array(
                 'title'     => __('Home Settings', 'redux-framework-demo'),
                 'desc'      => __('Redux Framework was created with the developer in mind. It allows for any theme developer to have an advanced theme panel with most of the features a developer would need. For more information check out the Github repo at: <a href="https://github.com/ReduxFramework/Redux-Framework">https://github.com/ReduxFramework/Redux-Framework</a>', 'redux-framework-demo'),
