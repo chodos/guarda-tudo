@@ -34,7 +34,7 @@ if ( ! isset( $content_width ) )
 /**
  * Add support for a custom header image.
  */
-require get_template_directory() . '/inc/custom-header.php';
+//require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/admin/admin-init.php';
 
 /**
@@ -530,3 +530,36 @@ function twentythirteen_customize_preview_js() {
 	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
 add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+
+
+/**************
+*
+* SLIDER
+*
+***************/
+
+function inkid_frontscripts() {
+
+     /* Add jQuery library. */
+     //wp_enqueue_script('jquery');
+
+
+     // Add ThinkUpSlider scripts
+     if ( is_front_page() ) {
+          wp_enqueue_script( 'thinkupslider', get_template_directory_uri() . '/admin/plugins/ResponsiveSlides/responsiveslides.min.js', array( 'jquery' ), '1.54' );
+          wp_enqueue_script( 'thinkupslider-call', get_template_directory_uri() . '/admin/plugins/ResponsiveSlides/responsiveslides-call.js', array( 'jquery' ) );
+     }
+}
+add_action( 'wp_enqueue_scripts', 'inkid_frontscripts', 10 );
+
+function inkid_shortcodescripts() {
+
+     // Register shortcode scripts
+     wp_register_script( 'thinkupslider', get_template_directory_uri() . '/admin/plugins/ResponsiveSlides/responsiveslides.min.js', array( 'jquery' ), '1.54', 'true' );
+     wp_register_script( 'thinkupslider-call', get_template_directory_uri() . '/admin/plugins/ResponsiveSlides/responsiveslides-call.js', array( 'jquery' ), '', 'true' );
+
+     // Add shortcode scripts
+     wp_enqueue_script( 'thinkupslider' );
+     wp_enqueue_script( 'thinkupslider-call' );
+}
+add_action( 'wp_enqueue_scripts', 'inkid_shortcodescripts', 10 );

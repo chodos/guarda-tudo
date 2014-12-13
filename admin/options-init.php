@@ -975,7 +975,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'validate'  => 'colorrgba',
                     ),
                     array(
-                        'id'        => 'opt-color-header',
+                        'id'        => 'opt-color-header2',
                         'type'      => 'color_gradient',
                         'title'     => __('Header Gradient Color Option', 'redux-framework-demo'),
                         'subtitle'  => __('Only color validation can be done on this field type', 'redux-framework-demo'),

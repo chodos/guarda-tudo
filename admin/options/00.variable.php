@@ -19,12 +19,13 @@ function inkid_reduxvariables() {
 	//  1.1.     General settings - Header.
 	//$GLOBALS['thinkup_general_logoswitch']                  = inkid_var ( 'thinkup_general_logoswitch' );
 	//$GLOBALS['thinkup_general_logolink']                    = inkid_var ( 'thinkup_general_logolink', 'url' );
-	$GLOBALS['background_header']                  			= inkid_var ( 'opt-background-header' );
-	$GLOBALS['color_header']                  				= inkid_var ( 'opt-color-header' );
-	$GLOBALS['layout_sections_home']                  		= inkid_var ( 'opt-layout-sections-home' );
-	$GLOBALS['layout_sections_what_video']                  = inkid_var ( 'opt-layout-sections-what-video' );
-	$GLOBALS['background_footer']                  			= inkid_var ( 'opt-background-footer' );
-	$GLOBALS['color_footer']                  				= inkid_var ( 'opt-color-footer' );
+	$GLOBALS['opt_background_header']                  		= inkid_var ( 'opt-background-header', 'url' );
+	$GLOBALS['opt_color_header']                  			= inkid_var ( 'opt-color-header' );
+	$GLOBALS['opt_layout_sections_home']                  	= inkid_var ( 'opt-layout-sections-home' );
+	$GLOBALS['opt_layout_sections_what_video']              = inkid_var ( 'opt-layout-sections-what-video' );
+	$GLOBALS['opt_background_footer']                  		= inkid_var ( 'opt-background-footer' );
+	$GLOBALS['opt_color_footer']                  			= inkid_var ( 'opt-color-footer' );
+	
 	$GLOBALS['opt_endereco_saopaulo']                  		= inkid_var ( 'opt-endereco-saopaulo' );
 	$GLOBALS['opt_telefone_saopaulo']                 		= inkid_var ( 'opt-telefone-saopaulo' );
 	$GLOBALS['opt_mailcontato_saopaulo']                  	= inkid_var ( 'opt-mail-contato-saopaulo' );
@@ -37,6 +38,7 @@ function inkid_reduxvariables() {
 	$GLOBALS['opt_telefone_rio']                 			= inkid_var ( 'opt-telefone-rio' );
 	$GLOBALS['opt_mailcontato_rio']                  		= inkid_var ( 'opt-mail-contato-rio' );
 	$GLOBALS['opt_mailreserva_rio']                  		= inkid_var ( 'opt-mail-reserva-rio' );
+	
 	$GLOBALS['opt_social_facebook']                  		= inkid_var ( 'opt-social-facebook' );
 	$GLOBALS['opt_social_twitter']                 			= inkid_var ( 'opt-social-twitter' );
 	$GLOBALS['opt_social_google']                  			= inkid_var ( 'opt-social-google' );
