@@ -3252,3 +3252,109 @@ footer.entry-meta {
 	float:right;
 	margin:38px 18px 0 18px;
 }
+
+/**
+* 12.0 Conteúdo
+* 
+* 12.1 Conteúdo - Home
+*-------------------------------------------------
+*/
+
+.line-block {
+	width:100%;
+	max-width:1114px;
+	padding:0 20px;
+	margin:0 auto;
+}
+
+.block-image-guarda-home {
+	width: 32%;
+	margin: 0 0.5%;
+	border-top: 4px solid #144461;
+	display: inline-block;
+}
+
+.block-image-guarda-home img {
+	width: 100%;
+}
+
+.block-image-guarda-home p {
+	background: #144461;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 27px;
+}
+
+.box-what {
+	float:left;
+}
+
+.box-what .main-post-index {
+	float: left;
+	width: 100%;
+	border-top:2px solid #144461;
+	border-bottom:2px solid #144461;
+	padding:12px 0 0 0;
+}
+
+.main-post-index h3 {
+	float: left;
+	font-family: Arial;
+	margin:0 3px;
+}
+
+.main-post-index a {
+	float: right;
+	color: #144461;
+}
+
+.main-post-index p {
+	clear: both;
+	float: left;
+	line-height: 1.2;
+	margin:3px 3px;
+}
+
+.main-post-index button {
+	float: right;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	font-size: 12px;
+	text-transform: lowercase;
+	background-color: #144461;
+}
+
+.box-what.size2 {
+	width: 100%;
+}
+
+.box-what.size3 {
+	width: 48%;
+	margin:0 1%;
+}
+
+.box-what.size4 {
+	width: 40.5%;
+	margin:auto 1%;
+}
+
+.box-what.size5 {
+	width: 83%;
+	margin:auto 1%;
+}
+
+.selo-home {
+	float: left;
+	width: 13%;
+	margin:50px 1%;
+}
+
+.selo-home5 {
+	float: left;
+	width: 13%;
+	margin:0 1%;
+}
+

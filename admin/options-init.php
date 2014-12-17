@@ -317,6 +317,15 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                     ),
 
                     array(
+                        'id'        => 'opt-select-main-post-home',
+                        'type'      => 'select',
+                        'data'      => 'post',
+                        'title'     => __('Postagem Inicial', 'redux-framework-demo'),
+                        'subtitle'  => __('Escolha a postagem que deve aparecer como destaque na página inicial.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a postagem por seu título', 'redux-framework-demo'),
+                    ),
+
+                    array(
                         'id'        => 'section-layout-home-end',
                         'type'      => 'section',
                         'indent'    => false // Indent all options below until the next 'section' option is set.

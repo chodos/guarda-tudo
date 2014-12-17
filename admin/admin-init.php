@@ -27,3 +27,6 @@ if (file_exists(dirname(__FILE__).'/options/01.theme-setup.php')) {
 if (file_exists(dirname(__FILE__).'/options/02.header.php')) {
     require_once( dirname(__FILE__).'/options/02.header.php' );
 }
+if (file_exists(dirname(__FILE__).'/options/03.index.php')) {
+    require_once( dirname(__FILE__).'/options/03.index.php' );
+}

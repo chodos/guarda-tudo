@@ -4,9 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @package InkID
  */
 ?><!DOCTYPE html>
 <!--[if IE 7]>
@@ -35,7 +33,7 @@
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
 			<div class="topo-header">
-				<img class="logo-header"src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
+				<img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
 				<div class="box-header-buttons">
 					<button class="header-button-reserva">Faça sua Reserva</button>
 				</div>

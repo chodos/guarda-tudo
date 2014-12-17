@@ -1,23 +1,30 @@
 <?php
 /**
- * The main template file
+ * The initial page
+ * 
  *
- * This is the most generic template file in a WordPress theme and one of the
- * two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * For example, it puts together the home page when no home.php file exists.
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @package InkID
  */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
+			<div class="line-block">
+				<div class="block-image-guarda-home">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
+					<p>Guarde Móveis</p>
+				</div>
+				<div class="block-image-guarda-home">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
+					<p>Guarde Estoques</p>
+				</div>
+				<div class="block-image-guarda-home">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
+					<p>Guarde Documentos</p>
+				</div>
+			</div>
+		<?php show_sections_index(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* The loop */ ?>

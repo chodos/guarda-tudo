@@ -23,6 +23,7 @@ function inkid_reduxvariables() {
 	$GLOBALS['opt_color_header']                  			= inkid_var ( 'opt-color-header' );
 	$GLOBALS['opt_layout_sections_home']                  	= inkid_var ( 'opt-layout-sections-home' );
 	$GLOBALS['opt_layout_sections_what_video']              = inkid_var ( 'opt-layout-sections-what-video' );
+	$GLOBALS['opt_select_main_post_home']    	            = inkid_var ( 'opt-select-main-post-home' );
 	$GLOBALS['opt_background_footer']                  		= inkid_var ( 'opt-background-footer' );
 	$GLOBALS['opt_color_footer']                  			= inkid_var ( 'opt-color-footer' );
 	
