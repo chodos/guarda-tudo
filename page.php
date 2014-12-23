@@ -1,14 +1,9 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying pages
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that other
- * 'pages' on your WordPress site will use a different template.
+ * @package InkID
  *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
  */
 
 get_header(); ?>
@@ -16,19 +11,20 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<header class="entry-header">
-						<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-						<div class="entry-thumbnail">
-							<?php the_post_thumbnail(); ?>
+				<header class="line-block">
+					<div class="page-topo">
+						<div class="capa-overflow">
+							<p>Alugue box individual, do tamanho que você precisa, são 15 opções de 1 a 40 m². Soluções para famílias e empresas.</p>
+							<button>Fale Conosco</button>
 						</div>
-						<?php endif; ?>
-
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					</header><!-- .entry-header -->
+						<?php the_post_thumbnail('full'); ?>
+					</div>
+					<div class="page-title"><h1><?php the_title(); ?></h1></div>	
+					<div style="background:#F5FBFB; width:100%">aaa</div>
+				</header>
 
 					<div class="entry-content">
 						<?php the_content(); ?>
@@ -40,7 +36,7 @@ get_header(); ?>
 					</footer><!-- .entry-meta -->
 				</article><!-- #post -->
 
-				<?php comments_template(); ?>
+				<?php //comments_template(); ?>
 			<?php endwhile; ?>
 
 		</div><!-- #content -->

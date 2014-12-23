@@ -5,48 +5,36 @@
  * @package InkID
  */
 
-function show_sections_index() {
-	global $opt_layout_sections_home;
-
-	$layout = $opt_layout_sections_home['enabled'];
-
-	if ($layout): foreach ($layout as $key=>$value) {
-		if ($key == 'whatvideo') {
-			echo "<div class='line-block'>";
-			show_main_what_video_home();
-			echo "</div>";
-		}
-	}
-	endif;
-}
-
 function show_main_what_video_home() {
+	global $opt_layout_sections_home;
 	global $opt_layout_sections_what_video;
 
-	$number_enable = count($opt_layout_sections_what_video['enabled']);
-
-	if (($number_enable == 3) && (!empty($opt_layout_sections_what_video['enabled']['selo']))) {
-		$number_enable = 5;
-	}
-
-	$layout = $opt_layout_sections_what_video['enabled'];
-
-	if ($layout): foreach ($layout as $key=>$value) {
-		if ($key == 'what') {
-			show_main_post_home($number_enable);
+	if (!empty($opt_layout_sections_home['enabled']['whatvideo'])) {
+		$number_enable = count($opt_layout_sections_what_video['enabled']);
+	
+		if (($number_enable == 3) && (!empty($opt_layout_sections_what_video['enabled']['selo']))) {
+			$number_enable = 5;
 		}
-		else {
-			if ($key == 'video') {
-				show_video_home($number_enable);
+	
+		$layout = $opt_layout_sections_what_video['enabled'];
+	
+		if ($layout): foreach ($layout as $key=>$value) {
+			if ($key == 'what') {
+				show_main_post_home($number_enable);
 			}
 			else {
-				if ($key == 'selo') {
-					echo "<img class='selo-home$number_enable' src='" . get_template_directory_uri() . "/images/selo.png' />";
+				if ($key == 'video') {
+					show_video_home($number_enable);
+				}
+				else {
+					if ($key == 'selo') {
+						echo "<img class='selo-home$number_enable' src='" . get_template_directory_uri() . "/images/selo.png' />";
+					}
 				}
 			}
 		}
+		endif;
 	}
-	endif;
 }
 
 function show_main_post_home($enables) {
@@ -64,8 +52,6 @@ function show_main_post_home($enables) {
 		get_template_part( 'main-post-home', get_post_format() );	
 		echo "</div>";
 	endif;
-
-	//echo "<div class='box-what size$enables'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</div>";
 }
 
 function show_video_home($enables){
@@ -74,6 +60,94 @@ function show_video_home($enables){
 			</div>";
 }
 
+function inkid_show_info_units_index() {
+	global $opt_endereco_saopaulo;
+	global $opt_telefone_saopaulo;
+	global $opt_endereco_campinas;
+	global $opt_telefone_campinas;
+	global $opt_endereco_rio;
+	global $opt_telefone_rio;
 
+	if ((!empty($opt_endereco_saopaulo)) || ( (!empty($opt_telefone_saopaulo['1'])) || (!empty($opt_telefone_saopaulo['2'])) )) {
+		echo 	"<h2 class='accordion'>Unidade São Paulo<span>+</span></h2>
+				<div class='accordion'>
+					<p>$opt_endereco_saopaulo</p><p>";
+
+					foreach ($opt_telefone_saopaulo as $fone) {
+						echo "<span>" . $fone . "</span>";
+					}
+		echo	"</p></div>";
+	}
+
+	if ((!empty($opt_endereco_campinas)) || ( (!empty($opt_telefone_campinas['1'])) || (!empty($opt_telefone_campinas['2'])) )) {
+		echo 	"<h2 class='accordion'>Unidade Campinas<span>+</span></h2>
+				<div class='accordion'>
+					<p>$opt_endereco_campinas</p><p>";
+
+					foreach ($opt_telefone_campinas as $fone) {
+						echo "<span>" . $fone . "</span>";
+					}
+		echo	"</p></div>";
+	}
+
+	if ((!empty($opt_endereco_rio)) || ( (!empty($opt_telefone_rio['1'])) || (!empty($opt_telefone_rio['2'])) )) {
+		echo 	"<h2 class='accordion'>Unidade Rio de Janeiro<span>+</span></h2>
+				<div class='accordion'>
+					<p>$opt_endereco_rio</p><p>";
+
+					foreach ($opt_telefone_rio as $fone) {
+						echo "<span>" . $fone . "</span>";
+					}
+		echo	"</p></div>";
+	}	
+}
+
+function inkid_show_home_promotion() {
+	$args = array(
+				'post_type' => 'promocoes',
+				'meta_query'=> array(
+        							array(
+            							'key' => 'exibicao_desconto_promocao',
+            							'compare' => '=',
+            							'value' => 'Home',
+        							)
+   	 							)
+			);
+	$slide_promotion = new WP_Query($args);
+
+	if( $slide_promotion->have_posts() ):  ?>
+
+		<ul class="rslides">
+		<?php while ( $slide_promotion->have_posts() ) : $slide_promotion->the_post(); ?>
+			<li>				
+				<div class="box-slider-promocao">
+					<div class="image-promocao">
+						<?php the_post_thumbnail(); ?>
+					</div>
+					<div class="info-promocao">
+						<p class="titulo"><?php the_title(); ?></p>
+						<p>GUARDA-TUDO</p>
+						<p class="botao">Saiba Mais</p>
+					</div>
+				</div>
+			</li>		
+		<?php endwhile; ?>
+		</ul>
+	<?php endif;
+}
+
+function inkid_show_promocao_selo() {
+	global $opt_layout_sections_home;
+
+	if (!empty($opt_layout_sections_home['enabled']['selopromotion'])) { ?>
+		<div style="width:48%;display:inline-block;vertical-align:top;margin:25px 0;text-align:center">
+			<img src="<?php echo get_template_directory_uri() . '/images/asbrass.png'?>">
+		</div>
+		<div style="width:50%;display:inline-block;">
+			<div style="position:absolute;z-index:5;margin-top:-6px;margin-left:30px"><img src="<?php echo get_template_directory_uri(); ?>/images/promocao.png"></div>
+			<?php inkid_show_home_promotion(); ?>
+		</div>
+	<?php }
+}
 
 ?>

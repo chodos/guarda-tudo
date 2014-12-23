@@ -563,3 +563,121 @@ function inkid_shortcodescripts() {
      wp_enqueue_script( 'thinkupslider-call' );
 }
 add_action( 'wp_enqueue_scripts', 'inkid_shortcodescripts', 10 );
+
+/************
+*
+* Including new version JQuery
+*
+***********/
+
+function modify_jquery() {
+	if (!is_admin()) {
+		// comment out the next two lines to load the local copy of jQuery
+		wp_deregister_script('jquery');
+		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery-1.11.1.min', false, '1.11.1');
+		wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'modify_jquery');
+
+
+/************
+*
+* Promotions Custom Type
+*
+************/
+
+add_action('init', 'type_post_promocoes');
+ 
+function type_post_promocoes() { 
+	$labels = array(
+		'name' => _x('Promoções', 'post type general name'),
+		'singular_name' => _x('Promoção', 'post type singular name'),
+		'all_itens' => _x('Todas as Promoções', 'list all itens'),
+		'add_new' => _x('Adicionar Promoção', 'Novo item'),
+		'add_new_item' => __('Novo Item'),
+		'edit_item' => __('Editar Item'),
+		'new_item' => __('Novo Item'),
+		'view_item' => __('Ver Item'),
+		'search_items' => __('Procurar Itens'),
+		'not_found' =>  __('Nenhum registro encontrado'),
+		'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
+		'parent_item_colon' => '',
+		'menu_name' => 'Promoções'
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Painel para registro e controle de promoções',
+		'public' => true,
+		'public_queryable' => true,
+		'exclude_from_search' => true,
+		'show_ui' => true,			
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-tag',
+		'register_meta_box_cb' => 'promocao_meta_box',		
+		'supports' => array('title','thumbnail', 'revisions')
+    );
+ 
+	register_post_type( 'promocoes' , $args );
+	flush_rewrite_rules();
+}
+
+function promocao_meta_box() {        
+       add_meta_box('info_desconto_promocao', __('Informações de Desconto'), 'meta_boxes_promocao', 'promocoes', 'normal', 'core');
+       add_meta_box('descricao_desconto_promocao', __('Descrição da Promoção'), 'meta_boxes_desc_promocao', 'promocoes', 'normal', 'high');
+       add_meta_box('exibicao_desconto_promocao', __('Exibição'), 'meta_exibicao_desconto_promocao', 'promocoes', 'side', 'default');
+}
+
+function meta_boxes_promocao() {
+    global $post;
+    $metaBoxValor = get_post_meta($post->ID, 'valor_desconto_promocao', true);
+    $metaBoxUnidade = get_post_meta($post->ID, 'unidade_responsavel_promocao', true);
+    ?>
+     
+    <label for="inputValorMeta">Valor em R$ ou %: </label>
+    <input style="width:30%;margin-right:10%" type="text" name="valor_desconto_promocao" id="inputValorMeta" value="<?php echo $metaBoxValor; ?>" />
+
+    <label for="inputUnidadeMeta">Unidade Responsável: </label>
+    <select name="unidade_responsavel_promocao" id="inputUnidadeMeta">
+    	<option value="São Paulo" <?php selected( $metaBoxUnidade, "São Paulo" ); ?>>São Paulo</option>
+    	<option value="Campinas" <?php selected( $metaBoxUnidade, "Campinas" ); ?>>Campinas</option>
+    	<option value="Rio de Janeiro" <?php selected( $metaBoxUnidade, "Rio de Janeiro" ); ?>>Rio de Janeiro</option>
+    </select>
+    <?php
+}
+
+function meta_boxes_desc_promocao() {
+	global $post;
+	$metaBoxDescricao = get_post_meta($post->ID, 'descricao_promocao', true);
+
+	echo '<textarea style="width:100%" name="descricao_promocao">' . $metaBoxDescricao . '</textarea>';
+}
+
+function meta_exibicao_desconto_promocao() {
+	global $post;
+    $metaBoxExibicao = get_post_meta($post->ID, 'exibicao_desconto_promocao', true);
+	?>
+	<p style="width:100%;color:#990000;font-size:0.9rem">Para destacar a promoção escolha entre as opções "Cabeçalho" e "Home".</p>
+	<select name="exibicao_desconto_promocao" style="width:100%">
+		<option value="" <?php selected( $metaBoxExibicao, "" ); ?>></option>
+    	<option value="Cabeçalho" <?php selected( $metaBoxExibicao, "Cabeçalho" ); ?>>Cabeçalho</option>
+    	<option value="Home" <?php selected( $metaBoxExibicao, "Home" ); ?>>Home</option>
+    </select>
+	<?php
+}
+
+add_action('save_post', 'save_promocoes_post');
+    
+function save_promocoes_post(){
+    global $post;        
+    update_post_meta($post->ID, 'valor_desconto_promocao', $_POST['valor_desconto_promocao']);
+    update_post_meta($post->ID, 'unidade_responsavel_promocao', $_POST['unidade_responsavel_promocao']);
+    update_post_meta($post->ID, 'descricao_promocao', $_POST['descricao_promocao']);
+    update_post_meta($post->ID, 'exibicao_desconto_promocao', $_POST['exibicao_desconto_promocao']);
+}

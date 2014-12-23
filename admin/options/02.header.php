@@ -75,4 +75,28 @@ function inkid_slider_phones() {
 		</div>';
 }
 
+function inkid_show_header_promotion() {
+	$args = array(
+				'post_type' => 'promocoes',
+				'meta_query'=> array(
+        							array(
+            							'key' => 'exibicao_desconto_promocao',
+            							'compare' => '=',
+            							'value' => 'Cabeçalho',
+        							)
+   	 							),
+				'posts_per_page' => 1
+			);
+	$main_promotion = new WP_Query($args);
+
+	if( $main_promotion->have_posts() ):  
+		$main_promotion->the_post(); ?>
+
+		<p class="titulo"><?php the_title(); ?></p>
+		<p class="desconto"><?php echo get_post_meta(get_the_ID(), 'valor_desconto_promocao', true); ?> desconto</p>
+		<p class="reserve">Reserve Agora</p>
+				
+<?php	endif;
+}
+
 ?>

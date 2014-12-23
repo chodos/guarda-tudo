@@ -27,6 +27,24 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head();?>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('h2.accordion').click(function(){
+				$(this).next('div.accordion').slideToggle(400);
+			});
+
+			var varButtonReserva = $('button.button-reserva-header').css('width');
+			$('div.box-promocao-header').css('width', varButtonReserva);
+
+			$('#linha-reserva').on('mouseenter', function () {
+   	 			$(this).find('div.box-promocao-header').slideToggle(400);
+			}).on('mouseleave', function () {
+   	 			$(this).find('div.box-promocao-header').hide();
+			});
+
+		});
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -35,7 +53,11 @@
 			<div class="topo-header">
 				<img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
 				<div class="box-header-buttons">
-					<button class="header-button-reserva">Faça sua Reserva</button>
+					<p><button>Faça sua Reserva</button></p>
+					<li id="linha-reserva">
+						<button class="button-reserva-header">Promoção! &nbsp;&nbsp;&#x25BC;</button>
+						<div class="box-promocao-header"><?php inkid_show_header_promotion(); ?></div>
+					</li>			
 				</div>
 				<?php inkid_slider_phones(); ?>
 			</div>

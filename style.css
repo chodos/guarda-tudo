@@ -104,7 +104,7 @@ button,
 input,
 select,
 textarea {
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: Arial, "Source Sans Pro", Helvetica, sans-serif;
 }
 
 body {
@@ -139,7 +139,7 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: Tahoma, Georgia, serif;
+	font-family: Arial, Tahoma, Georgia, serif;
 	line-height: 1.3;
 }
 
@@ -790,7 +790,7 @@ img.wp-smiley,
 .site-main .sidebar-container {
 	height: 0;
 	position: absolute;
-	top: 40px;
+	top: 460px;
 	width: 100%;
 	z-index: 1;
 }
@@ -988,7 +988,7 @@ ul.nav-menu .focus > ul,
  */
 
 .hentry {
-	padding: 40px 0;
+	padding: 6px 0;
 }
 
 .entry-header,
@@ -1005,7 +1005,7 @@ ul.nav-menu .focus > ul,
 .sidebar .entry-summary,
 .sidebar .entry-meta {
 	max-width: 1040px;
-	padding: 0 376px 0 60px;
+	padding: 0 376px 0 0px;
 }
 
 
@@ -3253,6 +3253,11 @@ footer.entry-meta {
 	margin:38px 18px 0 18px;
 }
 
+.box-header-buttons p {
+	margin: 0;
+	margin-bottom: 8px;
+}
+
 /**
 * 12.0 Conteúdo
 * 
@@ -3265,6 +3270,14 @@ footer.entry-meta {
 	max-width:1114px;
 	padding:0 20px;
 	margin:0 auto;
+	display: block;
+}
+
+.line-block.table-row {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 10px;
+	padding:20px;
 }
 
 .block-image-guarda-home {
@@ -3301,7 +3314,6 @@ footer.entry-meta {
 
 .main-post-index h3 {
 	float: left;
-	font-family: Arial;
 	margin:0 3px;
 }
 
@@ -3346,7 +3358,7 @@ footer.entry-meta {
 	margin:auto 1%;
 }
 
-.selo-home {
+.selo-home4 {
 	float: left;
 	width: 13%;
 	margin:50px 1%;
@@ -3355,6 +3367,274 @@ footer.entry-meta {
 .selo-home5 {
 	float: left;
 	width: 13%;
-	margin:0 1%;
+	margin: 0 1%;
 }
 
+.box-icons-home {
+	width: 24%;
+	max-width: 210px;
+	min-width: 140px;
+	text-align: center;
+	color: #FFF;
+	text-transform: uppercase;
+	font-size:18px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-color: #265A78;
+	border-radius:5px;
+	padding:30px 10px 15px;
+	display: table-cell;
+}
+
+.box-icons-home h4 {
+	font-size: 18px;
+	margin: 6px 0 2px 0;
+}
+
+h2.accordion {
+	cursor: pointer; 
+	color: #FFF; 
+	background: #265A78; 
+	border-radius: 2px;
+	font-size: 17px;
+	padding-left: 12px;
+	line-height: 1.8;
+	margin: 0;
+	margin-bottom: 6px;
+}
+
+h2.accordion span {
+	float: right;
+	border-left: 3px solid #FFF;
+	padding: 0 10px;
+}
+
+div.accordion { 
+	display: none;
+	font-weight: bold;
+	padding: 0 10px;
+	font-size: 14px;
+	margin-bottom: 6px;
+}
+
+div.accordion p {
+	margin: 0;
+}
+
+div.accordion p span {
+	margin-right: 40px;
+}
+
+.unidade-desc-home {
+	width:37.5%;
+	min-width:370px;
+	padding: 7px 0;
+	padding-left:4.5%;
+	background-image: url('images/local-unidade-bkg.png');
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: contain;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 6% 0 2%;
+	text-align: left;
+}
+
+.comentarios-desc-home {
+	width:44%;
+	min-height:105px;
+	padding:0 20px 0 160px;
+	background-color: #F0F0F0;
+	background-image: url('images/comentarios-home-bkg.png');
+	background-repeat: no-repeat;
+	background-position: 15px center;
+	color: #3F8DB4;
+	display: inline-block;
+	margin: 0 2%;
+}
+
+.comentarios-desc-home h4 {
+	font-weight: normal;
+	margin-bottom: 0;
+	margin-top: 15px;
+}
+
+.comentarios-desc-home p {
+	font-style: italic;
+}
+
+.button-reserva-header {
+	width:100%;
+	background:#2E8D91;
+	border-bottom:2px solid #C1DDDE;
+	text-transform:uppercase;
+}
+
+.button-reserva-header:hover,
+.button-reserva-header:focus {
+	background: #246C71;
+	border-bottom:2px solid #2E8D91;
+}
+
+.button-reserva-header:active {
+	background: #58A4A7;
+	border-top:2px solid #C1DDDE;
+	border-bottom: 0;
+}
+
+.box-promocao-header {
+	position:absolute;
+	width:100px;
+	background:#FFF;
+	z-index:10;
+	display:none;
+	background-image: url('images/box-promocao-bkg.png');
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+#linha-reserva {list-style-type: none;}
+
+.box-promocao-header p.titulo {
+	text-align: center;
+	font-size:18px;
+	line-height: 21px;
+	color: #222;
+}
+
+.box-promocao-header p.desconto {
+	text-align: center;
+	font-size:33px;
+	line-height: 35px;
+	color: #2E8D91;
+}
+
+.box-promocao-header p.reserve {
+	width:100%;
+	text-align: right;
+	font-size:14px;
+	color:#FFF;
+	background-color: #2E8D91;
+	margin: 0;
+	padding:2px 4px;
+	font-weight: bold;
+}
+
+.box-slider-promocao {
+	width:55%;
+	min-width:506px;
+	height: 147px;
+	display:table;
+}
+
+.box-slider-promocao .image-promocao {
+	height:100%;
+	display: table-cell;
+}
+
+.box-slider-promocao .image-promocao img {
+	height: 100%;
+	max-height: 147px;
+	width: auto;
+	border-top-left-radius:12px;
+	border-bottom-left-radius:12px;
+}
+
+.box-slider-promocao .info-promocao {
+	border-left:2px dashed #FFF;
+	border-right:2px dashed #FFF;
+	background:#138288;
+	text-align:right;
+	vertical-align: top;
+	font-size: 23px;
+	font-weight: bold;
+	color: #D0E6E7;
+	display: table-cell;
+}
+
+.box-slider-promocao .info-promocao p {
+	margin: 7px 6px 0;
+}
+
+.box-slider-promocao .info-promocao .titulo {
+	color:#FFF;
+	font-size: 28px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.box-slider-promocao .info-promocao .botao {
+	margin: 0px;
+	background: #D0E6E7;
+	color: #138288;
+	font-size: 18px;
+	padding-right: 6px;
+}
+
+#slider-promo {
+	text-align: center;
+	margin-bottom:20px;
+}
+
+#slider-promo .rslides {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#slider-promo .rslides li {
+	width: auto;
+}
+
+header .page-topo {
+	height:350px;
+	overflow:hidden;
+}
+
+header .page-topo .capa-overflow {
+	position:absolute;
+	width:20%;
+	z-index:10;
+	top:110px;
+	color:#FFF;
+}
+
+header .page-topo .capa-overflow p {
+	padding:8px;
+	background: rgba(38,90,120,0.9);
+	margin: 0;
+}
+
+header .page-topo .capa-overflow button {
+	float:right;
+	border: 0;
+	border-radius: 0;
+	background: rgba(20,68,97,0.9);
+	margin-top: 12px;
+}
+
+header .page-topo .capa-overflow button:hover {
+	background: rgba(20,68,97,1);
+}
+
+header .page-title {
+	width: 100%;
+	max-width: none;
+	background: #144461;
+	padding: 0;
+	margin:8px auto;
+}
+
+header .page-title h1 {
+	background: #FFF;
+	color: #144461;
+	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  	width: -moz-max-content;    /* Firefox/Gecko */
+  	width: -webkit-max-content; /* Chrome */
+  	max-width: 70%;
+  	font-size: 32px;
+  	margin: 0;
+  	line-height: 32px;
+  	padding: 8px;
+  	font-style: normal;
+}
