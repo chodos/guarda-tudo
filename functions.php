@@ -681,3 +681,76 @@ function save_promocoes_post(){
     update_post_meta($post->ID, 'descricao_promocao', $_POST['descricao_promocao']);
     update_post_meta($post->ID, 'exibicao_desconto_promocao', $_POST['exibicao_desconto_promocao']);
 }
+
+function inkid_metabox_page_callaction() {
+	global $post;
+	$metaCallAction = get_post_meta($post->ID, 'call_action_page', true);
+	$metaButtonAction = get_post_meta($post->ID, 'button_action_page', true);
+	$metaLinkAction = get_post_meta($post->ID, 'link_action_page', true);
+	?>
+
+	<p><label for="inputTextCall">Texto do Topo: </label>
+    <input style="width:80%;" type="text" name="call_action_page" id="inputTextCall" value="<?php echo $metaCallAction; ?>" /></p>
+    <p><label for="inputButtonCall">Texto do Botão: </label>
+    <input style="width:30%;" type="text" name="button_action_page" id="inputButtonCall" value="<?php echo $metaButtonAction; ?>" />
+    <label for="inputLinkCall">Link do Botão: </label>
+    <input style="width:30%;" type="text" name="link_action_page" id="inputLinkCall" value="<?php echo $metaLinkAction; ?>" /></p>
+	
+	<?php
+}
+
+function inkid_metas_destaque_page() {
+	global $post;
+	$metaDestaquePage = get_post_meta($post->ID, '_destaques_topo_page', true);
+	?>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechCameraDestaque" name="destaques_topo_page[]" value="camera" <?php if (in_array('camera', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<label for="chechCameraDestaque">Acesso monitorado 24 horas</label>
+		</div>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechCaixaDestaque" name="destaques_topo_page[]" value="caixa" <?php if (in_array('caixa', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<label for="chechCaixaDestaque">Armazene conforme sua preferência</label>
+		</div>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechCadeadoDestaque" name="destaques_topo_page[]" value="cadeado" <?php if (in_array('cadeado', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<label for="chechCadeadoDestaque">Tranque o box e leve a chave com você</label>
+		</div>
+
+	<?php
+}
+
+function inkid_metas_add_pages() {        
+       add_meta_box('inkid_meta_topo_pages', __('Topo da Página'), 'inkid_metabox_page_callaction', 'page', 'normal', 'high');
+       add_meta_box('inkid_meta_destaques_pages', __('Destaques'), 'inkid_metas_destaque_page', 'page', 'normal', 'high');
+}
+add_action( 'add_meta_boxes', 'inkid_metas_add_pages' );
+
+function inkid_save_metas_add_pages() {
+    global $post;        
+    update_post_meta($post->ID, 'call_action_page', $_POST['call_action_page']);
+    update_post_meta($post->ID, 'button_action_page', $_POST['button_action_page']);
+    update_post_meta($post->ID, 'link_action_page', $_POST['link_action_page']);
+    update_post_meta($post->ID, '_destaques_topo_page', $_POST['destaques_topo_page']);
+}
+add_action('save_post', 'inkid_save_metas_add_pages');
+
+function inkid_print_destaques_pages($destaques) {
+	if (isset($destaques)) {
+		echo '<div class="destaques-pagina">';
+		for ($i = 0; $i <= 3; $i++) {
+			if ($destaques[$i] == "camera") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/camera-icon.png' />Acesso monitorado 24 horas</p></div>
+			<?php
+			}
+			if ($destaques[$i] == "caixa") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/caixas-icon.png' />Armazene conforme sua preferência</p></div>
+			<?php
+			}
+			if ($destaques[$i] == "cadeado") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/cadeado-icon.png' />Tranque o box e leve a chave com você</p></div>
+			<?php
+			}
+		}
+		echo "</div>";
+	}
+}

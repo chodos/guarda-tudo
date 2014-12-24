@@ -11,19 +11,25 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : 
+					the_post(); 
+					$chamada_topo = get_post_meta(get_the_ID(), 'call_action_page', true);
+					$botao_topo = get_post_meta(get_the_ID(), 'button_action_page', true);
+					$link_topo = get_post_meta(get_the_ID(), 'link_action_page', true);
+			?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="line-block">
 					<div class="page-topo">
+						<?php if(!empty($chamada_topo)) { ?>
 						<div class="capa-overflow">
-							<p>Alugue box individual, do tamanho que você precisa, são 15 opções de 1 a 40 m². Soluções para famílias e empresas.</p>
-							<button>Fale Conosco</button>
+							<p><?php echo $chamada_topo; ?></p>
+							<?php if(!empty($botao_topo)) { ?> <a href="<?php echo $link_topo; ?>"><button><?php echo $botao_topo; ?></button></a> <?php } ?>
 						</div>
-						<?php the_post_thumbnail('full'); ?>
+						<?php } the_post_thumbnail('full'); ?>
 					</div>
 					<div class="page-title"><h1><?php the_title(); ?></h1></div>	
-					<div style="background:#F5FBFB; width:100%">aaa</div>
+					<?php inkid_print_destaques_pages(get_post_meta(get_the_ID(), '_destaques_topo_page', true)); ?>
 				</header>
 
 					<div class="entry-content">

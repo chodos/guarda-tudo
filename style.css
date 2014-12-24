@@ -790,7 +790,7 @@ img.wp-smiley,
 .site-main .sidebar-container {
 	height: 0;
 	position: absolute;
-	top: 460px;
+	top: 515px;
 	width: 100%;
 	z-index: 1;
 }
@@ -2436,7 +2436,6 @@ footer.entry-meta {
  */
 
 .widget {
-	background-color: rgba(247, 245, 231, 0.7);
 	font-size: 14px;
 	-webkit-hyphens: auto;
 	-moz-hyphens:    auto;
@@ -3593,7 +3592,8 @@ header .page-topo {
 
 header .page-topo .capa-overflow {
 	position:absolute;
-	width:20%;
+	width:50%;
+	max-width: 320px;
 	z-index:10;
 	top:110px;
 	color:#FFF;
@@ -3637,4 +3637,78 @@ header .page-title h1 {
   	line-height: 32px;
   	padding: 8px;
   	font-style: normal;
+}
+
+header .destaques-pagina {
+	background:#F5FBFB; 
+	width:100%; 
+	color: #009FA3; 
+	font-size: 20px;
+	margin-bottom: 16px;
+}
+
+header .destaques-pagina div {
+	width:32%;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+header .destaques-pagina p {
+	margin: 0;
+}
+
+header .destaques-pagina img {
+	float:left;
+	vertical-align:middle;
+	margin:8px 16px;
+}
+
+.widget_inkidwidgetformcontato {
+	background-color: #F6F8F9;
+	border-bottom: 1px solid #144461;
+	padding: 0
+}
+
+.widget_inkidwidgetformcontato .widget-title {
+	background-color: #144461;
+	padding: 6px 16px;
+	color: #FFF;
+	font-weight: bold;
+	font-style: normal;
+	font-family: Arial;
+}
+
+.widget_inkidwidgetformcontato form {
+	padding: 0 10px;
+}
+
+.widget_inkidwidgetformcontato span {
+	font-size: 13px;
+	padding:0 10px;
+	display: block;
+}
+
+.widget_inkidwidgetformcontato p {
+	margin: 10px 0;
+}
+
+.widget_inkidwidgetformcontato form input,
+.widget_inkidwidgetformcontato form textarea {
+	border: 1px solid #BDCDD6;
+	width: 68%; 
+	margin: 0px;
+}
+
+.widget_inkidwidgetformcontato form label {
+	width: 30%; 
+	text-align: right; 
+	display: inline-block; 
+	padding-right: 1%;
+}
+
+.widget_inkidwidgetformcontato .botao {
+	width: auto;
+	border: 0;
+	border-radius: 0;
+	background: #144461;
 }

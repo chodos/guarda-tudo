@@ -96,7 +96,7 @@ function inkid_show_header_promotion() {
 		<p class="desconto"><?php echo get_post_meta(get_the_ID(), 'valor_desconto_promocao', true); ?> desconto</p>
 		<p class="reserve">Reserve Agora</p>
 				
-<?php	endif;
+	<?php endif;
 }
 
 ?>
