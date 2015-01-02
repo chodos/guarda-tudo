@@ -974,16 +974,6 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'validate'  => 'color',
                     ),
                     array(
-                        'id'        => 'opt-color-rgba',
-                        'type'      => 'color_rgba',
-                        'title'     => __('Color RGBA - BETA', 'redux-framework-demo'),
-                        'subtitle'  => __('Gives you the RGBA color. Still quite experimental. Use at your own risk.', 'redux-framework-demo'),
-                        'default'   => array('color' => '#dd9933', 'alpha' => '1.0'),
-                        'output'    => array('body'),
-                        'mode'      => 'background',
-                        'validate'  => 'colorrgba',
-                    ),
-                    array(
                         'id'        => 'opt-color-header2',
                         'type'      => 'color_gradient',
                         'title'     => __('Header Gradient Color Option', 'redux-framework-demo'),
@@ -1826,7 +1816,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                 'menu_title' => 'Opções da Página',
                 'allow_sub_menu' => true,
                 'page_parent_post_type' => 'your_post_type',
-                'customizer' => true,
+                'customizer' => false,
                 'default_mark' => '*',
                 'hints' => 
                 array(

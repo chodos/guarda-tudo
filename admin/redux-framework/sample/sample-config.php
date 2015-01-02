@@ -1549,7 +1549,7 @@ if (!class_exists('Redux_Framework_sample_config')) {
                 'admin_bar'         => true,                    // Show the panel pages on the admin bar
                 'global_variable'   => '',                      // Set a different name for your global variable other than the opt_name
                 'dev_mode'          => true,                    // Show the time the page took to load, etc
-                'customizer'        => true,                    // Enable basic customizer support
+                'customizer'        => false,                    // Enable basic customizer support
                 //'open_expanded'     => true,                    // Allow you to start the panel in an expanded way initially.
                 //'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
 

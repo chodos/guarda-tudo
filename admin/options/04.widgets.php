@@ -76,7 +76,68 @@ class inkidWidgetFormContato extends WP_Widget {
 
 }
 
+class inkidWidgetGuiaTamanhos extends WP_Widget {
+	
+	/**
+	 * Construtor
+	 */
+	public function inkidWidgetGuiaTamanhos() { parent::WP_Widget(false, $name = 'Guia de Tamanhos'); }
+	
+	/**
+	 * Exibição final do Widget (já no sidebar)
+	 *
+	 * @param array $argumentos Argumentos passados para o widget
+	 * @param array $instancia Instância do widget
+	 */
+	public function widget($argumentos, $instancia) {
+		if (!is_page()) 
+			return;
+
+		echo $argumentos['before_widget'];
+		
+		echo "<p><img style='float:left;vertical-align:middle;' src='" . get_template_directory_uri() . "/images/caixa-icon.png' />" . $instancia['texto_guia'] . "</p>"; ?>
+
+
+
+		<?php echo $argumentos['after_widget'];
+	}
+	
+	/**
+	 * Salva os dados do widget no banco de dados
+	 *
+	 * @param array $nova_instancia Os novos dados do widget (a serem salvos)
+	 * @param array $instancia_antiga Os dados antigos do widget
+	 */
+	public function update($nova_instancia, $instancia_antiga) {			
+		$instancia = array_merge($instancia_antiga, $nova_instancia);
+    	return $instancia;
+	}
+	
+	/**
+	 * Formulário para os dados do widget (exibido no painel de controle)
+	 *
+	 * @param array $instancia Instância do widget
+	 */
+	public function form($instancia) {	
+		$widget['link_guia'] = $instancia['link_guia'];
+		$widget['texto_guia'] = $instancia['texto_guia'];
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('texto_guia'); ?>">Texto de exibição:</label>
+			<input id="<?php echo $this->get_field_id('texto_guia'); ?>" name="<?php echo $this->get_field_name('texto_guia'); ?>" type="text" value="<?php echo $widget['texto_guia']; ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('link_guia'); ?>">Link do Widget:</label>
+			<input id="<?php echo $this->get_field_id('link_guia'); ?>" name="<?php echo $this->get_field_name('link_guia'); ?>" type="text" value="<?php echo $widget['link_guia']; ?>" />
+		</p>
+		<?php
+	}
+
+}
+
 add_action('widgets_init', create_function('', 'return register_widget("inkidWidgetFormContato");'));
+add_action('widgets_init', create_function('', 'return register_widget("inkidWidgetGuiaTamanhos");'));
 
 
 ?>

@@ -26,8 +26,11 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	<?php wp_head();?>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<?php wp_head();
+
+	if (is_page(51)) { ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/BeatPicker.min.js"></script>
+	<?php } ?>
 	<script>
 		$(document).ready(function(){
 			$('h2.accordion').click(function(){
@@ -43,6 +46,14 @@
    	 			$(this).find('div.box-promocao-header').hide();
 			});
 
+		});
+
+		$(function() {    // Makes sure the code contained doesn't run until all the DOM elements have loaded
+
+   			$('#campo_conheceu').change(function(){
+       			$('#campo_outro').hide();
+        		$('#campo_' + $(this).val()).show();
+    		});
 		});
 	</script>
 </head>
