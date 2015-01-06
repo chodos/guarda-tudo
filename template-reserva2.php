@@ -37,7 +37,7 @@ if ($_POST['reserva_etp1']) {
 				<li><span class="icon-number3"></span><span class="desc-etapa">Sua Reserva</span></li>
 			</ul>
 		</div>
-		<form id="ReservaEtp1" class="form-reserva" method="post" action="#contato">
+		<form id="ReservaEtp1" class="form-reserva" method="post" action="<?php echo get_permalink(53); ?>">
 			
 			<input type="hidden" name="campo_nome" value="<?php echo $nome; ?>">
 			<input type="hidden" name="campo_email" value="<?php echo $email; ?>">
@@ -79,7 +79,7 @@ if ($_POST['reserva_etp1']) {
 			<p class="aviso amarelo">Tamanhos de box sujeitos a disponibilidade.</p>
 			
 			<?php if ((isset($promocao)) && ($promocao != '')) { ?>
-				<p class="aviso verde">Box em São Paulo promoção 30%</p>
+				<p class="aviso verde">Promoção: <?php echo $promocao; ?></p>
 			<?php } ?>
 
 			<p style="margin-top:20px;"><label style="width:20%" for="campo_data">Entrada Prevista</label><input type="text" id="campo_data" name="campo_data" data-beatpicker="true" data-beatpicker-module="footer,clear" data-beatpicker-format="['DD','MM','YYYY'],separator:'/'"></p>
@@ -96,7 +96,7 @@ if ($_POST['reserva_etp1']) {
 				<span id="campo_outro" style="display:none"><label style="width:20%">Qual?</label><input type="text" name="campo_outro" style="width:30%"></span>
 			</p>
 			
-			<p style="text-align:right"><input type="submit" name="reserva_etp2" value="Continue"></p>
+			<p style="text-align:right"><input type="submit" name="reserva_etp2" value="Concluir Reserva"></p>
 		</form>
 
 		

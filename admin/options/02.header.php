@@ -92,9 +92,14 @@ function inkid_show_header_promotion() {
 	if( $main_promotion->have_posts() ):  
 		$main_promotion->the_post(); ?>
 
-		<p class="titulo"><?php the_title(); ?></p>
-		<p class="desconto"><?php echo get_post_meta(get_the_ID(), 'valor_desconto_promocao', true); ?> desconto</p>
-		<p class="reserve">Reserve Agora</p>
+		<a href="<?php the_permalink(); ?>"><button class="button-reserva-header">Promoção! &nbsp;&nbsp;&#x25BC;</button></a>
+		<a href="<?php the_permalink(); ?>" rel="bookmark">
+			<div class="box-promocao-header">
+				<p class="titulo"><?php the_title(); ?></p>
+				<p class="desconto"><?php echo get_post_meta(get_the_ID(), 'valor_desconto_promocao', true); ?> desconto</p>
+				<p class="reserve">Reserve Agora</p>
+			</div>
+		</a>
 				
 	<?php endif;
 }

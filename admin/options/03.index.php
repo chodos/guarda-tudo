@@ -119,17 +119,19 @@ function inkid_show_home_promotion() {
 
 		<ul class="rslides">
 		<?php while ( $slide_promotion->have_posts() ) : $slide_promotion->the_post(); ?>
-			<li>				
-				<div class="box-slider-promocao">
-					<div class="image-promocao">
-						<?php the_post_thumbnail(); ?>
+			<li>		
+				<a href="<?php the_permalink(); ?>">		
+					<div class="box-slider-promocao">
+						<div class="image-promocao">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						<div class="info-promocao">
+							<p class="titulo"><?php the_title(); ?></p>
+							<p>GUARDA-TUDO</p>
+							<p class="botao">Saiba Mais</p>
+						</div>
 					</div>
-					<div class="info-promocao">
-						<p class="titulo"><?php the_title(); ?></p>
-						<p>GUARDA-TUDO</p>
-						<p class="botao">Saiba Mais</p>
-					</div>
-				</div>
+				</a>
 			</li>		
 		<?php endwhile; ?>
 		</ul>

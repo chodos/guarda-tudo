@@ -26,7 +26,7 @@ get_header();
 				<li><span class="icon-number3"></span><span class="desc-etapa">Sua Reserva</span></li>
 			</ul>
 		</div>
-		<form id="ReservaEtp1" class="form-reserva" method="post" action="#contato">
+		<form id="ReservaEtp1" class="form-reserva" method="post" action="<?php echo get_permalink(51); ?>">
 			<p><label for="campo_nome">Nome*</label><input type="text" id="campo_nome" name="campo_nome" value="<?php echo $nome; ?>" required></p>
 			<p><label for="campo_razaosocial">Razão Social</label><input type="text" id="campo_razaosocial" name="campo_razaosocial"></p>
 			<p><label for="campo_email">E-mail*</label><input type="email" id="campo_email" name="campo_email" value="<?php echo $email; ?>" required></p>
@@ -36,7 +36,7 @@ get_header();
 				<span class="input-radio"><input type="radio" id="campo_unidade_rj" name="campo_unidade" value="Rio de Janeiro" required><label class="label-radio" for="campo_unidade_rj">Rio de Janeiro</label></span>
 				<span class="input-radio"><input type="radio" id="campo_unidade_ca" name="campo_unidade" value="Campinas" required><label class="label-radio" for="campo_unidade_ca">Campinas</label></span>
 			</p>
-			<p style="text-align:right"><input type="submit" name="reserva_etp1" value="Continue"></p>
+			<p style="text-align:right"><input type="submit" name="reserva_etp1" value="Escolha o Box"></p>
 		</form>
 
 		

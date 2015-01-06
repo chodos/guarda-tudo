@@ -754,4 +754,9 @@ function inkid_print_destaques_pages($destaques) {
 	}
 }
 
+add_action( 'after_setup_theme', 'register_my_menu' );
+function register_my_menu() {
+  register_nav_menu( 'footer-menu', 'Menu do Rodapé' );
+}
+
 //add_filter('show_admin_bar', '__return_false');

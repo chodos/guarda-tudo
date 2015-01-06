@@ -89,7 +89,54 @@ if ($_POST['reserva_etp2']) {
 			</ul>
 		</div>
 
-		<div class="line-block"><p>Box reservado com sucesso em breve entraremos em contato para confirmar sua reserva.</p></div>
+		<div class="line-block">
+			<p>Reserva efetuada com sucesso em breve entraremos em contato para confirmar detalhes do seu box.</p>
+			<p class="reserva-info">
+				<span>Unidade Storage Guarda-Tudo</span>
+				<?php
+					global $opt_endereco_saopaulo;
+					global $opt_telefone_saopaulo;
+					global $opt_endereco_campinas;
+					global $opt_telefone_campinas;
+					global $opt_endereco_rio;
+					global $opt_telefone_rio;
+
+	
+					if ( $unidade == "São Paulo" ) {
+						echo '<span style="color:#144461">São Paulo<br />';
+						echo $opt_endereco_saopaulo . "<br />";
+						foreach ($opt_telefone_saopaulo as $fone) {
+							echo '<span>' . $fone . '</span>';
+						}
+						echo '</span>';
+					}
+					else {
+						if ( $unidade == "Rio de Janeiro" ) {
+							echo '<span style="color:#144461">Rio de Janeiro<br />';
+							echo $opt_endereco_rio . "<br />";
+							foreach ($opt_telefone_rio as $fone) {
+								echo '<span>' . $fone . '</span>';
+							}
+							echo '</span>';
+						}
+						else {
+							if ( $unidade == "Campinas" ) {
+								echo '<span style="color:#144461">Campinas<br />';
+								echo $opt_endereco_campinas . "<br />";
+								foreach ($opt_telefone_campinas as $fone) {
+									echo '<span>' . $fone . '</span>';
+								}
+								echo '</span>';
+							}
+							else {
+								echo "WR/NC Unit";
+							}
+						}
+					}
+				?>
+			</p>
+			<p class="reserva-info"><span>Data Prevista de Entrada</span><span style="color:#144461"><?php echo $data; ?></span></p>
+		</div>
 		
 
 		

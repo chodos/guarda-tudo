@@ -64,10 +64,9 @@
 			<div class="topo-header">
 				<img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
 				<div class="box-header-buttons">
-					<p><button>Faça sua Reserva</button></p>
+					<p><a href="<?php echo get_permalink(49); ?>" title="Consulte valores de Armazenagem"><button>Solicite Orçamento</button></a></p>
 					<li id="linha-reserva">
-						<button class="button-reserva-header">Promoção! &nbsp;&nbsp;&#x25BC;</button>
-						<div class="box-promocao-header"><?php inkid_show_header_promotion(); ?></div>
+						<?php inkid_show_header_promotion(); ?>
 					</li>			
 				</div>
 				<?php inkid_slider_phones(); ?>
