@@ -26,11 +26,8 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	<?php wp_head();
-
-	if (is_page(51)) { ?>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/BeatPicker.min.js"></script>
-	<?php } ?>
+	<?php wp_head(); ?>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/BeatPicker.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('h2.accordion').click(function(){
@@ -64,7 +61,7 @@
 			<div class="topo-header">
 				<img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
 				<div class="box-header-buttons">
-					<p><a href="<?php echo get_permalink(49); ?>" title="Consulte valores de Armazenagem"><button>Solicite Orçamento</button></a></p>
+						<?php inkid_show_booking_button(); ?>
 					<li id="linha-reserva">
 						<?php inkid_show_header_promotion(); ?>
 					</li>			

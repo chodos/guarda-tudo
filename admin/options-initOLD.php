@@ -264,7 +264,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'color',
                         'title'     => __('Cor de fundo do cabeçalho', 'redux-framework-demo'),
                         'subtitle'  => __('Escolha uma cor de fundo para o topo da página no caso de não exibir uma imagem.', 'redux-framework-demo'),
-                        'default'   => '#FFF',
+                        'default'   => '#dd9933',
                         'validate'  => 'color',
                     ),
 
@@ -323,15 +323,6 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'title'     => __('Postagem Inicial', 'redux-framework-demo'),
                         'subtitle'  => __('Escolha a postagem que deve aparecer como destaque na página inicial.', 'redux-framework-demo'),
                         'desc'      => __('Procure a postagem por seu título', 'redux-framework-demo'),
-                    ),
-
-                    array(
-                        'id'        => 'opt-select-booking-page',
-                        'type'      => 'select',
-                        'data'      => 'page',
-                        'title'     => __('Página de Reserva', 'redux-framework-demo'),
-                        'subtitle'  => __('É necessário escolher a página criada para reserva para que os links funcionem corretamente.', 'redux-framework-demo'),
-                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
                     ),
 
                     array(
@@ -417,7 +408,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Contato', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de contato para a unidade',
                     ),
 
@@ -426,7 +417,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de reserva para a unidade',
                     ),
 
@@ -470,7 +461,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Contato', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de contato para a unidade',
                     ),
 
@@ -479,7 +470,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de reserva para a unidade',
                     ),
 
@@ -523,7 +514,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Contato', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas as mensagens enviadas pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: contato@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de contato para a unidade',
                     ),
 
@@ -532,7 +523,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'text',
                         'title'     => __('E-mail para Reserva', 'redux-framework-demo'),
                         'subtitle'  => __('Informe um e-mail para onde deverão ser direcionadas os pedidos de reserva feitos pelo site.', 'redux-framework-demo'),
-                        'desc'      => __('Utilize vírgula para separar diferentes e-mails.', 'redux-framework-demo'),
+                        'desc'      => __('Exemplo: reserva@storage.com.br', 'redux-framework-demo'),
                         'msg'       => 'Entre com um e-mail de reserva para a unidade',
                     ),
 
@@ -591,7 +582,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                 ),
 
             );
-/*
+
             $this->sections[] = array(
                 'title'     => __('Home Settings', 'redux-framework-demo'),
                 'desc'      => __('Redux Framework was created with the developer in mind. It allows for any theme developer to have an advanced theme panel with most of the features a developer would need. For more information check out the Github repo at: <a href="https://github.com/ReduxFramework/Redux-Framework">https://github.com/ReduxFramework/Redux-Framework</a>', 'redux-framework-demo'),
@@ -1099,7 +1090,6 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
              * instead of reusing the 'title' value.  This can be done on any
              * section - kp
              */
-            /*
             $this->sections[] = array(
                 'icon'      => 'el-icon-bullhorn',
                 'title'     => __('Field Validation', 'redux-framework-demo'),
@@ -1741,7 +1731,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                     ),
                 )
             );
-*/
+
             $this->sections[] = array(
                 'title'     => __('Import / Export', 'redux-framework-demo'),
                 'desc'      => __('Import and Export your Redux Framework settings from file, text or URL.', 'redux-framework-demo'),

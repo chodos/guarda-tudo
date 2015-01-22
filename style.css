@@ -816,9 +816,13 @@ img.wp-smiley,
 .site-main .sidebar-container {
 	height: 0;
 	position: absolute;
-	top: 515px;
+	top: 90px;
 	width: 100%;
 	z-index: 1;
+}
+
+.site-main .sidebar-container.thumb-top {
+	top: 515px;
 }
 
 .site-main .sidebar-inner {
@@ -3619,7 +3623,7 @@ div.accordion p span {
 }
 
 header .page-topo {
-	height:350px;
+	max-height:350px;
 	overflow:hidden;
 }
 
@@ -4131,4 +4135,76 @@ div.nav-footer > ul {
 ul.nav-footer .sub-menu,
 ul.nav-footer .children {
 	padding: 0;
+}
+
+.depoimento {
+	width:100%;
+	background-color:#F8FBFC;
+	padding:8px;
+	margin:12px 0;
+}
+
+.shortcode-contrate {
+	color: #0D2C3E;
+	font-size: 17px;
+	display: table;
+	width:100%;
+	line-height: 20px;
+	margin: 2px 0 30px;
+}
+
+.shortcode-contrate div {
+	display: table-cell;
+	padding: 0 1%;
+}
+
+.shortcode-contrate .texto {
+	width:73%;
+	background-color: #F6F8F9;
+	height: 100%;
+}
+
+.shortcode-contrate .botao {
+	width:22%;
+	background-color: #144461;
+	text-align: center;
+	font-size: 18px;
+	vertical-align: middle;
+}
+
+.shortcode-contrate .botao a {
+	color: #FFF;
+}
+
+.shortcode-unidades {
+	font-size: 18px;
+	display: table;
+	width:100%;
+	color: #FFF;
+	margin: 2px 0 30px;
+	border-collapse: separate;
+	border-spacing: 3px;
+}
+
+.shortcode-unidades div {
+	display: table-cell;
+	padding: 0 0.5%;
+}
+
+.shortcode-unidades .texto {
+	width:37%;
+	background-color: #2E8D91;
+	height: 100%;
+	text-align: right;
+}
+
+.shortcode-unidades .botao {
+	width: 130px;
+	background-color: #EAF3F4;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.shortcode-unidades .botao a {
+	color: #2E8D91;
 }

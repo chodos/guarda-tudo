@@ -1,8 +1,10 @@
 <?php
 /**
- * The template for displaying pages
+ * The template for testimonials page
+ * Template Name: Depoimentos
  *
  * @package InkID
+ * @subpackage Guarda - Tudo
  *
  */
 
@@ -21,9 +23,7 @@ get_header(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="line-block">
 				<?php if(has_post_thumbnail()) : ?>
-				<?php 
-					inkid_top_sidebar_change( $post->ID ); 
-				?>
+				<?php inkid_top_sidebar_change(); ?>
 					<div class="page-topo">
 						<?php if(!empty($chamada_topo)) { ?>
 						<div class="capa-overflow">
@@ -39,6 +39,23 @@ get_header(); ?>
 
 					<div class="entry-content">
 						<?php the_content(); ?>
+
+						<?php
+							$args = array(
+								'status' => 'approve',
+								'post_id' => get_the_ID(), // use post_id, not post_ID
+							);
+							$comments = get_comments($args);
+							foreach($comments as $comment) : ?>
+								
+								<div class="depoimento">
+									<p><i>"<?php echo $comment->comment_content; ?>"</i></p>
+									<b><?php echo $comment->comment_author; ?></b>
+								</div>
+
+						<?php endforeach;
+						?>
+
 						<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 					</div><!-- .entry-content -->
 
@@ -46,8 +63,17 @@ get_header(); ?>
 						<?php edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer><!-- .entry-meta -->
 				</article><!-- #post -->
-
-				<?php //comments_template(); ?>
+				<?php 
+					$args = array(
+  						'title_reply'       	=> __( 'Deixe seu Depoimento' ),
+  						'label_submit'      	=> __( 'Enviar' ),
+						'comment_notes_after'	=> '',
+						'comment_field' 		=> '<p class="comment-form-comment"><label for="comment">' . _x( 'Depoimento', 'noun' ) .
+    												'</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true">' .
+    												'</textarea></p>',
+					);
+					comment_form($args); 
+				?>
 			<?php endwhile; ?>
 
 		</div><!-- #content -->

@@ -703,15 +703,15 @@ function inkid_metas_destaque_page() {
 	$metaDestaquePage = get_post_meta($post->ID, '_destaques_topo_page', true);
 	?>
 		<div style="width:31%;min-width:250px;display:inline-block">
-			<input type="checkbox" id="chechCameraDestaque" name="destaques_topo_page[]" value="camera" <?php if (in_array('camera', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<input type="checkbox" id="chechCameraDestaque" name="destaques_topo_page[]" value="camera" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('camera', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
 			<label for="chechCameraDestaque">Acesso monitorado 24 horas</label>
 		</div>
 		<div style="width:31%;min-width:250px;display:inline-block">
-			<input type="checkbox" id="chechCaixaDestaque" name="destaques_topo_page[]" value="caixa" <?php if (in_array('caixa', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<input type="checkbox" id="chechCaixaDestaque" name="destaques_topo_page[]" value="caixa" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('caixa', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
 			<label for="chechCaixaDestaque">Armazene conforme sua preferência</label>
 		</div>
 		<div style="width:31%;min-width:250px;display:inline-block">
-			<input type="checkbox" id="chechCadeadoDestaque" name="destaques_topo_page[]" value="cadeado" <?php if (in_array('cadeado', $metaDestaquePage)) echo 'checked="checked"'; ?>>
+			<input type="checkbox" id="chechCadeadoDestaque" name="destaques_topo_page[]" value="cadeado" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('cadeado', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
 			<label for="chechCadeadoDestaque">Tranque o box e leve a chave com você</label>
 		</div>
 
@@ -758,5 +758,102 @@ add_action( 'after_setup_theme', 'register_my_menu' );
 function register_my_menu() {
   register_nav_menu( 'footer-menu', 'Menu do Rodapé' );
 }
+
+function return_booking_page() {
+	global $opt_select_booking_page;
+
+	if (!empty($opt_select_booking_page)) {
+		$pag_booking = get_permalink($opt_select_booking_page);
+		return $pag_booking;
+	} else {
+		return null;
+	}
+}
+
+function inkid_sidebar_class() {
+	global $chx_top_sidebar;
+    do_action('inkid_sidebar_hook', $chx_top_sidebar);
+}
+
+function inkid_top_sidebar($tamanho) {
+		echo    'style="top:' . $tamanho . 'px"';
+}
+function inkid_top_sidebar_change( $postid ) {
+	global $chx_top_sidebar;
+
+	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $postid ), 'full' );
+	$height = $img[2];
+	if ( $height > 350 ) {		
+		$height = 350 + 165;
+	} 
+	else {
+		$height = $height + 165;
+	}
+
+	$chx_top_sidebar = $height;
+	add_action( 'inkid_sidebar_hook', 'inkid_top_sidebar', 1, 1);
+}
+
+function chx_shortcode_reserva( $atts ) {
+	$vars = shortcode_atts(
+				array(
+					'texto' => 'Guarda Móveis em São Paulo, Rio de Janeiro ou Campinas do tamanho da sua necessidade, com toda a segurança e pelo tempo que precisar.',
+					'botao' => 'Contrate Agora',
+				), $atts, 'texto-botao' 
+			);
+	$pag_booking = return_booking_page();
+
+
+	return "<div class='shortcode-contrate'>
+				<div class='texto'>{$vars['texto']}</div>
+				<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>{$vars['botao']}</a></div>
+			</div>";
+}
+add_shortcode( 'reserva-shortcode', 'chx_shortcode_reserva' );
+
+function chx_shortcode_unidades( $atts ) {
+	$vars = shortcode_atts(
+				array(
+					'texto' => 'Unidades:',
+					'unidade' => '',
+				), $atts, 'texto-botao' 
+			);
+
+	if ( $vars['unidade'] == "SP") {
+		return "<div class='shortcode-unidades'>
+					<div class='texto'>{$vars['texto']}</div>
+					<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+					<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+				</div>";
+	}
+	else {
+		if ( $vars['unidade'] == "RJ") {
+			return "<div class='shortcode-unidades'>
+						<div class='texto'>{$vars['texto']}</div>
+						<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+						<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+					</div>";
+		}
+		else {
+			if ( $vars['unidade'] == "CA") {
+				return "<div class='shortcode-unidades'>
+							<div class='texto'>{$vars['texto']}</div>
+							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+						</div>";
+			}
+			else {
+				return "<div class='shortcode-unidades'>
+							<div class='texto'>{$vars['texto']}</div>
+							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+						</div>";
+			}
+		}
+	}
+
+}
+add_shortcode( 'unidades-shortcode', 'chx_shortcode_unidades' );
 
 //add_filter('show_admin_bar', '__return_false');

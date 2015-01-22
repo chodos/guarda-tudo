@@ -104,4 +104,11 @@ function inkid_show_header_promotion() {
 	<?php endif;
 }
 
+function inkid_show_booking_button() {
+	$pag_booking = return_booking_page();
+	if ($pag_booking) {
+		echo '<p><a href="' . $pag_booking . '" title="Consulte valores de Armazenagem"><button>Solicite Orçamento</button></a></p>';
+	}
+}
+
 ?>

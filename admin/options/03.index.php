@@ -116,7 +116,7 @@ function inkid_show_home_promotion() {
 	$slide_promotion = new WP_Query($args);
 
 	if( $slide_promotion->have_posts() ):  ?>
-
+		<div style="position:absolute;z-index:5;margin-top:-6px;margin-left:30px"><img src="<?php echo get_template_directory_uri(); ?>/images/promocao.png"></div>
 		<ul class="rslides">
 		<?php while ( $slide_promotion->have_posts() ) : $slide_promotion->the_post(); ?>
 			<li>		
@@ -145,8 +145,7 @@ function inkid_show_promocao_selo() {
 		<div style="width:48%;display:inline-block;vertical-align:top;margin:25px 0;text-align:center">
 			<img src="<?php echo get_template_directory_uri() . '/images/asbrass.png'?>">
 		</div>
-		<div style="width:50%;display:inline-block;">
-			<div style="position:absolute;z-index:5;margin-top:-6px;margin-left:30px"><img src="<?php echo get_template_directory_uri(); ?>/images/promocao.png"></div>
+		<div style="width:50%;display:inline-block;">	
 			<?php inkid_show_home_promotion(); ?>
 		</div>
 	<?php }

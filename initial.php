@@ -42,7 +42,7 @@ get_header(); ?>
 					<h4>Guia de Tamanhos</h4>O Espaço que você precisa
 				</div>
 				<div class="box-icons-home" style="background-image: url('<?php echo get_template_directory_uri() . "/images/caixas/caixa" . rand(1,4); ?>.png');">
-					<a href="<?php echo get_permalink(49); ?>" title="Orçamento sem Compromisso para Armazenamento">
+					<a href="<?php echo return_booking_page(); ?>" title="Orçamento sem Compromisso para Armazenamento">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/icones/phone.png" />
 						<h4>Reserve</h4>O seu Box sem complicações
 					</a>
