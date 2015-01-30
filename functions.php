@@ -759,11 +759,60 @@ function register_my_menu() {
   register_nav_menu( 'footer-menu', 'Menu do Rodapé' );
 }
 
+function return_unidade_page($unidade) {
+	global $opt_select_saopaulo_page;
+	global $opt_select_rio_page;
+	global $opt_select_campinas_page;
+
+	if ($unidade == "SP") {
+		if (!empty($opt_select_saopaulo_page)) {
+			$pag_unidade = get_permalink($opt_select_saopaulo_page);
+			return $pag_unidade;
+		} else {
+			return null;
+		}
+	}
+	else {
+		if ($unidade == "RJ") {
+			if (!empty($opt_select_rio_page)) {
+				$pag_unidade = get_permalink($opt_select_rio_page);
+				return $pag_unidade;
+			} else {
+				return null;
+			}
+		}
+		else {
+			if ($unidade == "CA") {
+				if (!empty($opt_select_campinas_page)) {
+					$pag_unidade = get_permalink($opt_select_campinas_page);
+					return $pag_unidade;
+				} else {
+					return null;
+				}
+			}
+			else {
+				return null;
+			}
+		}
+	}
+}
+
 function return_booking_page() {
 	global $opt_select_booking_page;
 
 	if (!empty($opt_select_booking_page)) {
 		$pag_booking = get_permalink($opt_select_booking_page);
+		return $pag_booking;
+	} else {
+		return null;
+	}
+}
+
+function return_testimonial_page() {
+	global $opt_select_testimonial_page;
+
+	if (!empty($opt_select_testimonial_page)) {
+		$pag_booking = get_permalink($opt_select_testimonial_page);
 		return $pag_booking;
 	} else {
 		return null;
@@ -799,7 +848,7 @@ function chx_shortcode_reserva( $atts ) {
 				array(
 					'texto' => 'Guarda Móveis em São Paulo, Rio de Janeiro ou Campinas do tamanho da sua necessidade, com toda a segurança e pelo tempo que precisar.',
 					'botao' => 'Contrate Agora',
-				), $atts, 'texto-botao' 
+				), $atts, 'reserva-shortcode' 
 			);
 	$pag_booking = return_booking_page();
 
@@ -816,38 +865,38 @@ function chx_shortcode_unidades( $atts ) {
 				array(
 					'texto' => 'Unidades:',
 					'unidade' => '',
-				), $atts, 'texto-botao' 
+				), $atts, 'unidades-shortcode' 
 			);
 
 	if ( $vars['unidade'] == "SP") {
 		return "<div class='shortcode-unidades'>
 					<div class='texto'>{$vars['texto']}</div>
-					<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
-					<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+					<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
 				</div>";
 	}
 	else {
 		if ( $vars['unidade'] == "RJ") {
 			return "<div class='shortcode-unidades'>
 						<div class='texto'>{$vars['texto']}</div>
-						<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-						<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+						<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
 					</div>";
 		}
 		else {
 			if ( $vars['unidade'] == "CA") {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
 						</div>";
 			}
 			else {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
-							<div class='botao'><a href='" . $pag_booking . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+							<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
 						</div>";
 			}
 		}

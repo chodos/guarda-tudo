@@ -23,10 +23,15 @@ function inkid_reduxvariables() {
 	$GLOBALS['opt_color_header']                  			= inkid_var ( 'opt-color-header' );
 	$GLOBALS['opt_layout_sections_home']                  	= inkid_var ( 'opt-layout-sections-home' );
 	$GLOBALS['opt_layout_sections_what_video']              = inkid_var ( 'opt-layout-sections-what-video' );
-	$GLOBALS['opt_select_main_post_home']    	            = inkid_var ( 'opt-select-main-post-home' );
-	$GLOBALS['opt_select_booking_page']    	            	= inkid_var ( 'opt-select-booking-page' );
 	$GLOBALS['opt_background_footer']                  		= inkid_var ( 'opt-background-footer' );
 	$GLOBALS['opt_color_footer']                  			= inkid_var ( 'opt-color-footer' );
+
+	$GLOBALS['opt_select_main_post_home']    	            = inkid_var ( 'opt-select-main-post-home' );
+	$GLOBALS['opt_select_booking_page']    	            	= inkid_var ( 'opt-select-booking-page' );
+	$GLOBALS['opt_select_testimonial_page']    	            = inkid_var ( 'opt-select-testimonial-page' );
+	$GLOBALS['opt_select_saopaulo_page']    	            = inkid_var ( 'opt-select-saopaulo-page' );
+	$GLOBALS['opt_select_rio_page']    	            		= inkid_var ( 'opt-select-rio-page' );
+	$GLOBALS['opt_select_campinas_page']    	            = inkid_var ( 'opt-select-campinas-page' );
 	
 	$GLOBALS['opt_endereco_saopaulo']                  		= inkid_var ( 'opt-endereco-saopaulo' );
 	$GLOBALS['opt_telefone_saopaulo']                 		= inkid_var ( 'opt-telefone-saopaulo' );

@@ -151,4 +151,11 @@ function inkid_show_promocao_selo() {
 	<?php }
 }
 
+function inkid_show_testimonial_button() {
+	$pag_testimonial = return_testimonial_page();
+	if ($pag_testimonial) {
+		echo '<a href="' . $pag_testimonial . '" title="Avaliações de nossos clientes"><div class="comentarios-desc-home"><h4>Veja as avaliações de nossos clientes</h4><p>Deixe aqui o seu depoimento também!</p></div></a>';
+	}
+}
+
 ?>

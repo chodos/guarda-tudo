@@ -3622,6 +3622,51 @@ div.accordion p span {
 	width: auto;
 }
 
+#slider-depoimentos {
+	float: left;
+	width: 100%;
+}
+
+#slider-depoimentos h1 {
+	font-size: 25px;
+}
+
+#slider-depoimentos .rslides_tabs {
+	z-index: 99;
+	text-align: center;
+	width: 100%;
+	bottom: 10px;
+	margin: 0;
+}
+#slider-depoimentos .rslides_tabs li {
+	list-style: none;
+	margin: 0 6px;
+	display: inline-block;
+	zoom: 1;
+}
+#slider-depoimentos .rslides_tabs li a {
+	width: 11px;
+	height: 11px;
+	display: block;
+	background: #3E6E8B;
+	background: rgba(20, 68, 97, 0.4);
+	cursor: pointer;
+	text-indent: -9999px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	-o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#slider-depoimentos .rslides_tabs li a:hover,
+#slider-depoimentos .rslides_tabs li.rslides_here a {
+	background: #144461;
+	background: rgba(20, 68, 97, 0.9)
+}
+
 header .page-topo {
 	max-height:350px;
 	overflow:hidden;
@@ -3654,7 +3699,8 @@ header .page-topo .capa-overflow button:hover {
 	background: rgba(20,68,97,1);
 }
 
-header .page-title {
+header .page-title,
+aside .page-title {
 	width: 100%;
 	max-width: none;
 	background: #144461;
@@ -3662,7 +3708,8 @@ header .page-title {
 	margin:8px auto;
 }
 
-header .page-title h1 {
+header .page-title h1,
+aside .page-title h1 {
 	background: #FFF;
 	color: #144461;
 	width: intrinsic;           /* Safari/WebKit uses a non-standard name */
@@ -3767,6 +3814,10 @@ header .destaques-pagina img {
 
 .widget_inkidwidgetguiatamanhos img {
 	margin-right: 8px;
+}
+
+.widget_inkidwidgetdepoimentos {
+	padding: 6px;
 }
 
 #etapas-reserva {
@@ -4142,6 +4193,14 @@ ul.nav-footer .children {
 	background-color:#F8FBFC;
 	padding:8px;
 	margin:12px 0;
+}
+
+.depoimento.widget {
+	background-color: transparent;
+}
+
+.depoimento.widget .autor{
+	text-align: right;
 }
 
 .shortcode-contrate {

@@ -53,7 +53,7 @@ get_header(); ?>
 			</div>
 			<div class="line-block" style="margin-bottom:16px;text-align:center">
 				<div class="unidade-desc-home"><?php inkid_show_info_units_index(); ?></div>
-				<div class="comentarios-desc-home"><h4>Veja os depoimentos de nossos clientes</h4><p>Deixe aqui o seu depoimento também!</p></div>
+				<?php inkid_show_testimonial_button(); ?>
 			</div>
 
 		</div><!-- #content -->

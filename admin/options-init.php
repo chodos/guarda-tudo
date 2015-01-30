@@ -317,24 +317,6 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                     ),
 
                     array(
-                        'id'        => 'opt-select-main-post-home',
-                        'type'      => 'select',
-                        'data'      => 'post',
-                        'title'     => __('Postagem Inicial', 'redux-framework-demo'),
-                        'subtitle'  => __('Escolha a postagem que deve aparecer como destaque na página inicial.', 'redux-framework-demo'),
-                        'desc'      => __('Procure a postagem por seu título', 'redux-framework-demo'),
-                    ),
-
-                    array(
-                        'id'        => 'opt-select-booking-page',
-                        'type'      => 'select',
-                        'data'      => 'page',
-                        'title'     => __('Página de Reserva', 'redux-framework-demo'),
-                        'subtitle'  => __('É necessário escolher a página criada para reserva para que os links funcionem corretamente.', 'redux-framework-demo'),
-                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
-                    ),
-
-                    array(
                         'id'        => 'section-layout-home-end',
                         'type'      => 'section',
                         'indent'    => false // Indent all options below until the next 'section' option is set.
@@ -366,11 +348,74 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'validate'  => 'color',
                     ),
 
-
                     array(
                         'id'        => 'section-footer-end',
                         'type'      => 'section',
                         'indent'    => false // Indent all options below until the next 'section' option is set.
+                    ),
+
+                ),
+            );
+
+            $this->sections[] = array(
+                'title'     => __('Páginas', 'redux-framework-demo'),
+                'desc'      => __('Selecione e defina as páginas criadas para os links distribuídos no site.', 'redux-framework-demo'),
+                'icon'      => 'el-icon-link',
+                // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                'fields'    => array(
+
+                    array(
+                        'id'        => 'opt-select-main-post-home',
+                        'type'      => 'select',
+                        'data'      => 'post',
+                        'title'     => __('Postagem Inicial', 'redux-framework-demo'),
+                        'subtitle'  => __('Escolha a postagem que deve aparecer como destaque na página inicial.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a postagem por seu título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-booking-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página de Reserva', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para reserva para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-testimonial-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página de Depoimento', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para depoimento para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-saopaulo-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Unidade de São Paulo', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para a unidade para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-rio-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Unidade do Rio de Janeiro', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para a unidade para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-campinas-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Unidade de Campinas', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para a unidade para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
                     ),
 
                 ),
