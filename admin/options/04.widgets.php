@@ -19,8 +19,6 @@ class inkidWidgetFormContato extends WP_Widget {
 	 * @param array $instancia Instância do widget
 	 */
 	public function widget($argumentos, $instancia) {
-		if (!is_page()) 
-			return;
 
 		echo $argumentos['before_widget'];
 		echo $argumentos['before_title'] . $argumentos['widget_name'] . $argumentos['after_title'];
@@ -90,8 +88,6 @@ class inkidWidgetGuiaTamanhos extends WP_Widget {
 	 * @param array $instancia Instância do widget
 	 */
 	public function widget($argumentos, $instancia) {
-		if (!is_page()) 
-			return;
 
 		echo $argumentos['before_widget'];
 		
@@ -151,9 +147,6 @@ class inkidWidgetDepoimentos extends WP_Widget {
 	 */
 	public function widget($argumentos, $instancia) {
 		global $opt_select_testimonial_page;
-
-		if (!is_page()) 
-			return;
 
 		$pag_testimonial = return_testimonial_page();
 		echo $argumentos['before_widget'];

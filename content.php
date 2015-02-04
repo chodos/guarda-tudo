@@ -13,10 +13,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
-		<div class="entry-thumbnail">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail('full'); ?></a>
-		</div>
-		<?php endif; ?>
+			<?php if ( is_single() ) : ?>
+				<div class="entry-thumbnail">
+					<?php the_post_thumbnail('full'); ?>
+				</div>
+			<?php else : ?>
+				<div class="entry-thumbnail blog-list">
+					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail('full'); ?></a>
+				</div>
+			<?php endif; //is_single ?>
+		<?php endif; // has_thumbnail ?>
 
 		<?php if ( is_single() ) : ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -27,12 +33,19 @@
 		<?php endif; // is_single() ?>
 
 		<div class="entry-meta">
-			<?php //twentythirteen_entry_meta(); ?>
+			<?php /**twentythirteen_entry_meta();
+			<!--
 			<?php if ( comments_open() && ! is_single() ) : ?>
 			<div class="comments-link">
 				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a comment', 'twentythirteen' ) . '</span>', __( 'One comment so far', 'twentythirteen' ), __( 'View all % comments', 'twentythirteen' ) ); ?>
 			</div><!-- .comments-link -->
 		<?php endif; // comments_open() ?>
+			**/ ?>
+			<?php if ( ! is_single() ) : ?>
+				<div class="categories-list">
+					<span><?php the_category( ' | ' ); ?></span>
+				</div>
+			<?php endif; ?>
 			<?php edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->

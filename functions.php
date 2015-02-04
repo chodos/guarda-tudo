@@ -229,7 +229,7 @@ add_filter( 'wp_title', 'twentythirteen_wp_title', 10, 2 );
  */
 function twentythirteen_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'twentythirteen' ),
+		'name'          => __( 'Widgets do Rodapé', 'twentythirteen' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Appears in the footer section of the site.', 'twentythirteen' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -239,9 +239,9 @@ function twentythirteen_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Secondary Widget Area', 'twentythirteen' ),
+		'name'          => __( 'Widgets das Páginas', 'twentythirteen' ),
 		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears on posts and pages in the sidebar.', 'twentythirteen' ),
+		'description'   => __( 'Aparece na barra lateral das páginas.', 'twentythirteen' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
@@ -249,6 +249,19 @@ function twentythirteen_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'twentythirteen_widgets_init' );
+
+function inkid_create_widget_area() {
+	register_sidebar( array(
+		'name'          => __( 'Widgets das Postagens', 'inkid' ),
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Aparece na barra lateral das postagens do blog.', 'inkid' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'inkid_create_widget_area' );
 
 if ( ! function_exists( 'twentythirteen_paging_nav' ) ) :
 /**

@@ -499,6 +499,7 @@ hr {
 .comments-link a:before,
 .tags-links a:first-child:before,
 .categories-links a:first-child:before,
+.categories-list span:before,
 .edit-link a:before,
 .attachment .entry-title:before,
 .attachment-meta:before,
@@ -1053,13 +1054,18 @@ ul.nav-menu .focus > ul,
 	margin: 0 auto 10px;
 }
 
+.entry-thumbnail.blog-list {
+	max-height: 300px;
+	overflow: hidden;
+}
+
 .entry-header {
 	margin-bottom: 16px;
 }
 
 .entry-title {
 	font-weight: normal;
-	margin: 0 0 5px;
+	margin: 10px 0 5px;
 }
 
 .entry-title a {
@@ -1096,6 +1102,17 @@ ul.nav-menu .focus > ul,
 
 .entry-meta .date a:before {
 	content: "\f303";
+}
+
+.categories-list {
+	color: #2E8D91;
+}
+
+.categories-list span:before {
+	content: "\f225";
+	position: relative;
+	top: -1px;
+	margin-right: 3px;
 }
 
 .comments-link a:before {
@@ -4196,6 +4213,7 @@ ul.nav-footer .children {
 }
 
 .depoimento.widget {
+	width:280px;
 	background-color: transparent;
 }
 
