@@ -918,4 +918,52 @@ function chx_shortcode_unidades( $atts ) {
 }
 add_shortcode( 'unidades-shortcode', 'chx_shortcode_unidades' );
 
+function chx_shortcode_guarda( $atts ) {
+	$vars = shortcode_atts(
+				array(
+					'texto' => 'Guarde também:',
+					'pagina' => '',
+				), $atts, 'guarda-shortcode' 
+			);
+
+	if ( $vars['pagina'] == "moveis") {
+		return "<div class='shortcode-unidades'>
+					<div class='texto'>{$vars['texto']}</div>
+					<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
+					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
+					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+				</div>";
+	}
+	else {
+		if ( $vars['pagina'] == "documentos") {
+			return "<div class='shortcode-unidades'>
+						<div class='texto'>{$vars['texto']}</div>
+						<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
+						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
+						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+					</div>";
+		}
+		else {
+			if ( $vars['pagina'] == "estoques") {
+				return "<div class='shortcode-unidades'>
+							<div class='texto'>{$vars['texto']}</div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+						</div>";
+			}
+			else {
+				return "<div class='shortcode-unidades'>
+							<div class='texto'>{$vars['texto']}</div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
+							<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
+						</div>";
+			}
+		}
+	}
+
+}
+add_shortcode( 'guarda-shortcode', 'chx_shortcode_guarda' );
+
 //add_filter('show_admin_bar', '__return_false');

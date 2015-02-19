@@ -2519,7 +2519,33 @@ footer.entry-meta {
 
 /* Search widget */
 .search-form .search-submit {
-	display: none;
+	display: block;
+}
+
+.widget_search fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.widget_search {
+	padding: 20px 0 0;
+}
+
+.widget_search .search-field {
+	float: left;
+	width: 60%;
+	border-color: #B9C9D0;
+	padding
+}
+
+.widget_search .search-submit {
+	float: right;
+	max-width: 33%;
+	border: 0px none;
+	border-radius: 0px;
+	background: none repeat scroll 0% 0% #144461;
+	padding: 5px 13px;
 }
 
 /* RSS Widget */
@@ -3764,13 +3790,15 @@ header .destaques-pagina img {
 	margin:8px 16px;
 }
 
-.widget_inkidwidgetformcontato {
+.widget_inkidwidgetformcontato,
+aside.widget_wysija{
 	background-color: #F6F8F9;
 	border-bottom: 1px solid #144461;
 	padding: 0
 }
 
-.widget_inkidwidgetformcontato .widget-title {
+.widget_inkidwidgetformcontato .widget-title,
+.widget_wysija .widget-title {
 	background-color: #144461;
 	padding: 6px 16px;
 	color: #FFF;
@@ -3783,7 +3811,8 @@ header .destaques-pagina img {
 	padding: 0 10px;
 }
 
-.widget_inkidwidgetformcontato span {
+.widget_inkidwidgetformcontato span,
+.widget_wysija .widget_wysija_cont {
 	font-size: 13px;
 	padding:0 10px;
 	display: block;
@@ -3794,24 +3823,50 @@ header .destaques-pagina img {
 }
 
 .widget_inkidwidgetformcontato form input,
-.widget_inkidwidgetformcontato form textarea {
+.widget_inkidwidgetformcontato form textarea,
+.widget_wysija .widget_wysija_cont form input {
 	border: 1px solid #BDCDD6;
 	width: 68%; 
 	margin: 0px;
 }
 
-.widget_inkidwidgetformcontato form label {
+.widget_inkidwidgetformcontato form label,
+.widget_wysija .widget_wysija_cont form label {
 	width: 30%; 
 	text-align: right; 
 	display: inline-block; 
 	padding-right: 1%;
 }
 
-.widget_inkidwidgetformcontato .botao {
+.widget_inkidwidgetformcontato .botao,
+.widget_wysija .widget_wysija_cont .wysija-submit {
 	width: auto;
 	border: 0;
 	border-radius: 0;
 	background: #144461;
+}
+
+aside.widget_wysija {
+	margin-top: 15px;
+}
+
+.widget_wysija .widget_wysija_cont form {
+	text-align: right;
+}
+
+.widget_wysija .widget_wysija_cont p {
+	margin: 0 0 16px;
+	text-align: left;
+}
+
+.widget_wysija .widget_wysija_cont .wysija-paragraph label {
+	font-size: 16px;
+}
+
+.widget_wysija .widget_wysija_cont .wysija-submit {
+	right: 10px;
+	margin-bottom: 16px;
+	display: inline-block;
 }
 
 .widget_inkidwidgetguiatamanhos {
@@ -4223,11 +4278,12 @@ ul.nav-footer .children {
 
 .shortcode-contrate {
 	color: #0D2C3E;
-	font-size: 17px;
+	font-size: 13px;
 	display: table;
 	width:100%;
 	line-height: 20px;
 	margin: 2px 0 30px;
+	font-weight: bold;
 }
 
 .shortcode-contrate div {
@@ -4266,6 +4322,7 @@ ul.nav-footer .children {
 .shortcode-unidades div {
 	display: table-cell;
 	padding: 0 0.5%;
+	line-height: 1.8;
 }
 
 .shortcode-unidades .texto {
@@ -4284,4 +4341,8 @@ ul.nav-footer .children {
 
 .shortcode-unidades .botao a {
 	color: #2E8D91;
+}
+
+.site-main .sidebar-container.sidebar-posts {
+	top: 0;
 }
