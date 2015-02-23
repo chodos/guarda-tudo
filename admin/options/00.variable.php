@@ -27,12 +27,18 @@ function inkid_reduxvariables() {
 	$GLOBALS['opt_color_footer']                  			= inkid_var ( 'opt-color-footer' );
 
 	$GLOBALS['opt_select_main_post_home']    	            = inkid_var ( 'opt-select-main-post-home' );
+	$GLOBALS['opt_select_contact_page']    	            	= inkid_var ( 'opt-select-contact-page' );
 	$GLOBALS['opt_select_booking_page']    	            	= inkid_var ( 'opt-select-booking-page' );
 	$GLOBALS['opt_select_testimonial_page']    	            = inkid_var ( 'opt-select-testimonial-page' );
 	$GLOBALS['opt_select_saopaulo_page']    	            = inkid_var ( 'opt-select-saopaulo-page' );
 	$GLOBALS['opt_select_rio_page']    	            		= inkid_var ( 'opt-select-rio-page' );
 	$GLOBALS['opt_select_campinas_page']    	            = inkid_var ( 'opt-select-campinas-page' );
+	$GLOBALS['opt_select_moveis_page']    	           		= inkid_var ( 'opt-select-moveis-page' );
+	$GLOBALS['opt_select_documentos_page']    	          	= inkid_var ( 'opt-select-documentos-page' );
+	$GLOBALS['opt_select_estoques_page']    	           	= inkid_var ( 'opt-select-estoques-page' );
 	
+	$GLOBALS['opt_contact_add_fields']    	           		= inkid_var ( 'opt-contact-add-fields' );
+
 	$GLOBALS['opt_endereco_saopaulo']                  		= inkid_var ( 'opt-endereco-saopaulo' );
 	$GLOBALS['opt_telefone_saopaulo']                 		= inkid_var ( 'opt-telefone-saopaulo' );
 	$GLOBALS['opt_mailcontato_saopaulo']                  	= inkid_var ( 'opt-mail-contato-saopaulo' );

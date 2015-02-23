@@ -12,18 +12,24 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 			<div class="line-block">
-				<div class="block-image-guarda-home">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
-					<p>Guarde Móveis</p>
-				</div>
-				<div class="block-image-guarda-home">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
-					<p>Guarde Estoques</p>
-				</div>
-				<div class="block-image-guarda-home">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/image-guarda.jpg" />
-					<p>Guarde Documentos</p>
-				</div>
+				<a href="<?php echo return_solucao_page('moveis'); ?>" title="Móveis, eletrodomésticos e todos seus bens você guarda conosco">
+					<div class="block-image-guarda-home">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/destaques/guarda-moveis.jpg" />
+						<p>Guarde Móveis</p>
+					</div>
+				</a>
+				<a href="<?php echo return_solucao_page('estoques'); ?>" title="Veja como centralizar seu estoque em galpão modular">
+					<div class="block-image-guarda-home">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/destaques/guarda-estoques.jpg" />
+						<p>Guarde Estoques</p>
+					</div>
+				</a>
+				<a href="<?php echo return_solucao_page('documentos'); ?>" title="Saiba mais sobre como armazenar seu arquivo">
+					<div class="block-image-guarda-home">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/destaques/guarda-documentos.jpg" />
+						<p>Guarde Documentos</p>
+					</div>
+				</a>
 			</div>
 			<div class="line-block">
 				<?php show_main_what_video_home(); ?>

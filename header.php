@@ -56,10 +56,22 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+	<!-- Facebook like box START -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=1446818718924186&version=v2.0";
+  		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<!-- Facebook like box END -->
+
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
 			<div class="topo-header">
-				<img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" />
+				<a href="<?php echo home_url(); ?>" title="Página Inicial"><img class="logo-header" src="<?php echo get_template_directory_uri(); ?>/images/headers/logo.png" /></a>
 				<div class="box-header-buttons">
 						<?php inkid_show_booking_button(); ?>
 					<li id="linha-reserva">

@@ -893,10 +893,16 @@ div.nav-menu > ul {
 	color: #FFF;
 	display: block;
 	font-family: Arial;
-	font-size: 18px;
+	font-size: 21px;
 	line-height: 1;
 	padding: 20px 10px;
 	text-decoration: none;
+}
+
+.nav-menu .sub-menu li a {
+	padding: 20px 4px;
+	font-size: 18px;
+	letter-spacing: -0.65px;
 }
 
 .nav-menu li:hover > a,
@@ -929,7 +935,7 @@ div.nav-menu > ul {
 }
 
 .nav-menu .sub-menu li {
-	background-color: #265A78;
+	background-color: #2E8D91;
 	border: 0px;
 	border-top: 3px solid #FFF;
 }
@@ -943,8 +949,10 @@ ul.nav-menu ul a,
 ul.nav-menu ul a:hover,
 .nav-menu ul ul a:hover,
 ul.nav-menu ul a:focus,
-.nav-menu ul ul a:focus {
-	background-color: #2E8D91;
+.nav-menu ul ul a:focus,
+.nav-menu ul.sub-menu .current-menu-item > a,
+.nau-menu ul.sub-menu .current_page_item > a {
+	background-color: #256C70;
 }
 
 ul.nav-menu li:hover > ul,
@@ -1169,12 +1177,12 @@ ul.nav-menu .focus > ul,
 
 .entry-content a,
 .comment-content a {
-	color: #bc360a;
+	color: #144461;
 }
 
 .entry-content a:hover,
 .comment-content a:hover {
-	color: #ea9629;
+	color: #3E6E8B;
 }
 
 .entry-content blockquote {
@@ -2480,7 +2488,6 @@ footer.entry-meta {
 	-ms-hyphens:     auto;
 	hyphens:         auto;
 	margin: 0 0 24px;
-	padding: 20px;
 	word-wrap: break-word;
 }
 
@@ -3615,6 +3622,7 @@ div.accordion p span {
 	height: 100%;
 	max-height: 147px;
 	width: auto;
+	max-width: 230px;
 	border-top-left-radius:12px;
 	border-bottom-left-radius:12px;
 }
@@ -3782,6 +3790,7 @@ header .destaques-pagina div {
 
 header .destaques-pagina p {
 	margin: 0;
+	line-height: 35px;
 }
 
 header .destaques-pagina img {
@@ -3955,14 +3964,16 @@ h1.reserva {
 	margin: 16px 0;
 }
 
-.form-reserva {
+.form-reserva,
+.form-contato {
 	width: 100%;
 	max-width: 960px;
 	margin: 16px auto;
 	padding: 0 20px;
 }
 
-.form-reserva label {
+.form-reserva label,
+.form-contato label{
 	width: 15%;
 	padding-right:2%;
 	text-align: right;
@@ -3971,29 +3982,55 @@ h1.reserva {
 
 .form-reserva input[type="text"],
 .form-reserva input[type="email"],
-.form-reserva select {
+.form-reserva select,
+.form-contato input[type="text"],
+.form-contato input[type="email"],
+.form-contato select,
+.form-contato textarea {
 	width: 80%;
 	border: 1px solid #BDCDD6;
 	display: inline-block;
+}
+
+.form-contato.form-widget input,
+.form-contato.form-widget select,
+.form-contato.form-widget textarea {
+	width: 68%;
+}
+
+.form-contato.form-widget input[type="submit"] {
+	width: auto;
 }
 
 .form-reserva select {
 	padding: 4px;
 }
 
-.form-reserva input[type="radio"] {
+.form-reserva input[type="radio"],
+.form-contato input[type="radio"] {
 	margin: 0 1%;
 	text-align: right;
 }
 
-.form-reserva .label-radio {
+.form-reserva .label-radio,
+.form-contato .label-radio {
 	text-align: left;
 	width: 20%;
 }
 
-.form-reserva span.input-radio {
+.form-reserva span.input-radio,
+.form-contato span.input-radio {
 	background-color:#E8EEF1;
 	padding:5px 0;
+}
+
+.contact-confirmation {
+	text-align: center;
+	background-color:#E8EEF1;
+}
+
+.contact-confirmation p {
+	padding: 8px 0px;
 }
 
 /* CSS Campo Data JQ */
@@ -4231,9 +4268,8 @@ div.nav-footer > ul {
 .nav-footer li {
 	display: inline-block;
 	vertical-align: top;
-	font-size:19px;
+	font-size:21px;
 	min-width: 16%;
-	text-align: center;
 	padding: 0 5px;
 }
 
@@ -4251,7 +4287,7 @@ div.nav-footer > ul {
 .nav-footer .sub-menu li,
 .nav-footer .children li {
 	display: block;
-	font-size:14px;
+	font-size:15px;
 	text-align: left;
 }
 
@@ -4343,6 +4379,19 @@ ul.nav-footer .children {
 	color: #2E8D91;
 }
 
+.shortcode-unidades .botao a:hover {
+	color: #0C595E;
+}
+
 .site-main .sidebar-container.sidebar-posts {
 	top: 0;
+}
+
+.entry-content ul.two-columns {
+	-moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
 }

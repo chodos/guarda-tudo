@@ -727,6 +727,18 @@ function inkid_metas_destaque_page() {
 			<input type="checkbox" id="chechCadeadoDestaque" name="destaques_topo_page[]" value="cadeado" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('cadeado', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
 			<label for="chechCadeadoDestaque">Tranque o box e leve a chave com você</label>
 		</div>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechInsetoDestaque" name="destaques_topo_page[]" value="inseto" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('inseto', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
+			<label for="chechInsetoDestaque">Dedetização e limpeza permanentes</label>
+		</div>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechContratoDestaque" name="destaques_topo_page[]" value="contrato" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('contrato', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
+			<label for="chechContratoDestaque">Contrato sem fiador e sem burocracia</label>
+		</div>
+		<div style="width:31%;min-width:250px;display:inline-block">
+			<input type="checkbox" id="chechAreasDestaque" name="destaques_topo_page[]" value="areas" <?php if ( is_array($metaDestaquePage) && count($metaDestaquePage) > 0) { if (in_array('areas', $metaDestaquePage)) echo 'checked="checked"'; } ?>>
+			<label for="chechAreasDestaque">Amplas áreas para carga e descarga</label>
+		</div>
 
 	<?php
 }
@@ -762,6 +774,18 @@ function inkid_print_destaques_pages($destaques) {
 				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/cadeado-icon.png' />Tranque o box e leve a chave com você</p></div>
 			<?php
 			}
+			if ($destaques[$i] == "inseto") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/inseto-icon.png' />Dedetização e limpeza permanentes</p></div>
+			<?php
+			}
+			if ($destaques[$i] == "contrato") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/contrato-icon.png' />Contrato sem fiador e sem burocracia</p></div>
+			<?php
+			}
+			if ($destaques[$i] == "areas") { ?>
+				<div><p><img src='<?php echo get_template_directory_uri() ?>/images/caixas-icon.png' />Amplas áreas para carga e descarga</p></div>
+			<?php
+			}
 		}
 		echo "</div>";
 	}
@@ -782,7 +806,7 @@ function return_unidade_page($unidade) {
 			$pag_unidade = get_permalink($opt_select_saopaulo_page);
 			return $pag_unidade;
 		} else {
-			return null;
+			return "#";
 		}
 	}
 	else {
@@ -791,7 +815,7 @@ function return_unidade_page($unidade) {
 				$pag_unidade = get_permalink($opt_select_rio_page);
 				return $pag_unidade;
 			} else {
-				return null;
+				return "#";
 			}
 		}
 		else {
@@ -800,13 +824,62 @@ function return_unidade_page($unidade) {
 					$pag_unidade = get_permalink($opt_select_campinas_page);
 					return $pag_unidade;
 				} else {
-					return null;
+					return "#";
 				}
 			}
 			else {
-				return null;
+				return "#";
 			}
 		}
+	}
+}
+
+function return_solucao_page($solucao) {
+	global $opt_select_moveis_page;
+	global $opt_select_documentos_page;
+	global $opt_select_estoques_page;
+
+	if ($solucao == "moveis") {
+		if (!empty($opt_select_moveis_page)) {
+			$pag_solucao = get_permalink($opt_select_moveis_page);
+			return $pag_solucao;
+		} else {
+			return "#";
+		}
+	}
+	else {
+		if ($solucao == "documentos") {
+			if (!empty($opt_select_documentos_page)) {
+				$pag_solucao = get_permalink($opt_select_documentos_page);
+				return $pag_solucao;
+			} else {
+				return "#";
+			}
+		}
+		else {
+			if ($solucao == "estoques") {
+				if (!empty($opt_select_estoques_page)) {
+					$pag_solucao = get_permalink($opt_select_estoques_page);
+					return $pag_solucao;
+				} else {
+					return "#";
+				}
+			}
+			else {
+				return "#";
+			}
+		}
+	}
+}
+
+function return_contact_page() {
+	global $opt_select_contact_page;
+
+	if (!empty($opt_select_contact_page)) {
+		$pag_contact = get_permalink($opt_select_contact_page);
+		return $pag_contact;
+	} else {
+		return "#";
 	}
 }
 
@@ -884,32 +957,32 @@ function chx_shortcode_unidades( $atts ) {
 	if ( $vars['unidade'] == "SP") {
 		return "<div class='shortcode-unidades'>
 					<div class='texto'>{$vars['texto']}</div>
-					<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
-					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+					<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Conheça nossa Unidade no Rio de Janeiro'>Rio de Janeiro</a></div>
+					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Conheça nossa Unidade em Campinas'>Campinas</a></div>
 				</div>";
 	}
 	else {
 		if ( $vars['unidade'] == "RJ") {
 			return "<div class='shortcode-unidades'>
 						<div class='texto'>{$vars['texto']}</div>
-						<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+						<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Conheça nossa Unidade em São Paulo'>São Paulo</a></div>
+						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Conheça nossa Unidade em Campinas'>Campinas</a></div>
 					</div>";
 		}
 		else {
 			if ( $vars['unidade'] == "CA") {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Conheça nossa Unidade em São Paulo'>São Paulo</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Conheça nossa Unidade no Rio de Janeiro'>Rio de Janeiro</a></div>
 						</div>";
 			}
 			else {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>São Paulo</a></div>
-							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Rio de Janeiro</a></div>
-							<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Campinas</a></div>
+							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Conheça nossa Unidade em São Paulo'>São Paulo</a></div>
+							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Conheça nossa Unidade no Rio de Janeiro'>Rio de Janeiro</a></div>
+							<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Conheça nossa Unidade em Campinas'>Campinas</a></div>
 						</div>";
 			}
 		}
@@ -929,35 +1002,35 @@ function chx_shortcode_guarda( $atts ) {
 	if ( $vars['pagina'] == "moveis") {
 		return "<div class='shortcode-unidades'>
 					<div class='texto'>{$vars['texto']}</div>
-					<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
-					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
-					<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+					<div class='botao'><a href='" . return_solucao_page("documentos") . "' title='Saiba mais sobre como armazenar seu arquivo'>Documentos</a></div>
+					<div class='botao'><a href='" . return_solucao_page("estoques") . "' title='Veja como centralizar seu estoque em galpão modular'>Estoques</a></div>
+					<div class='botao'><a href='" . return_solucao_page("tudo") . "' title='Não tenha dúvida, aqui você pode armazenar de tudo'>Tudo</a></div>
 				</div>";
 	}
 	else {
 		if ( $vars['pagina'] == "documentos") {
 			return "<div class='shortcode-unidades'>
 						<div class='texto'>{$vars['texto']}</div>
-						<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
-						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
-						<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+						<div class='botao'><a href='" . return_solucao_page("moveis") . "' title='Móveis, eletrodomésticos e todos seus bens você guarda conosco'>Móveis</a></div>
+						<div class='botao'><a href='" . return_solucao_page("estoques") . "' title='Veja como centralizar seu estoque em galpão modular'>Estoques</a></div>
+						<div class='botao'><a href='" . return_solucao_page("tudo") . "' title='Não tenha dúvida, aqui você pode armazenar de tudo'>Tudo</a></div>
 					</div>";
 		}
 		else {
 			if ( $vars['pagina'] == "estoques") {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
-							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
-							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Tudo</a></div>
+							<div class='botao'><a href='" . return_solucao_page("moveis") . "' title='Móveis, eletrodomésticos e todos seus bens você guarda conosco'>Móveis</a></div>
+							<div class='botao'><a href='" . return_solucao_page("documentos") . "' title='Saiba mais sobre como armazenar seu arquivo'>Documentos</a></div>
+							<div class='botao'><a href='" . return_solucao_page("tudo") . "' title='Não tenha dúvida, aqui você pode armazenar de tudo'>Tudo</a></div>
 						</div>";
 			}
 			else {
 				return "<div class='shortcode-unidades'>
 							<div class='texto'>{$vars['texto']}</div>
-							<div class='botao'><a href='" . return_unidade_page("SP") . "' title='Consulte valores de Armazenagem'>Móveis</a></div>
-							<div class='botao'><a href='" . return_unidade_page("RJ") . "' title='Consulte valores de Armazenagem'>Documentos</a></div>
-							<div class='botao'><a href='" . return_unidade_page("CA") . "' title='Consulte valores de Armazenagem'>Estoques</a></div>
+							<div class='botao'><a href='" . return_solucao_page("moveis") . "' title='Móveis, eletrodomésticos e todos seus bens você guarda conosco'>Móveis</a></div>
+							<div class='botao'><a href='" . return_solucao_page("documentos") . "' title='Saiba mais sobre como armazenar seu arquivo'>Documentos</a></div>
+							<div class='botao'><a href='" . return_solucao_page("estoques") . "' title='Veja como centralizar seu estoque em galpão modular'>Estoques</a></div>
 						</div>";
 			}
 		}
@@ -965,5 +1038,62 @@ function chx_shortcode_guarda( $atts ) {
 
 }
 add_shortcode( 'guarda-shortcode', 'chx_shortcode_guarda' );
+
+function chx_input_contact_destiny( $unidade ) {
+	global $opt_mailcontato_saopaulo;
+	global $opt_mailcontato_campinas;
+	global $opt_mailcontato_rio;
+
+	if ( $unidade == "SP" ) {
+		if ( ! isset( $opt_mailcontato_saopaulo ) ) {	
+			return 'site@storageguardatudo.com.br';
+		} else {
+			return $opt_mailcontato_saopaulo;
+		}
+	}
+
+	if ( $unidade == "CA" ) {
+		if ( ! isset( $opt_mailcontato_campinas ) ) {	
+			return 'site@storageguardatudo.com.br';
+		} else {
+			return $opt_mailcontato_campinas;
+		}
+	}
+
+	if ( $unidade == "RJ" ) {
+		if ( ! isset( $opt_mailcontato_rio ) ) {	
+			return 'site@storageguardatudo.com.br';
+		} else {
+			return $opt_mailcontato_rio;
+		}
+	}
+}
+
+// Add Fields - Contact
+function chx_newinput_contact() {
+	global $opt_contact_add_fields;
+	$i = 0;
+
+	if ( ! isset( $opt_contact_add_fields )  ) {
+		return '';
+	}
+	else {
+		foreach ($opt_contact_add_fields as $field) {
+			echo '<p><label>' . $field . '</label>
+			<input type="text" name="' . $field . '_' . $i . '"></p>';
+			$i++;
+		}
+	}
+}
+
+function chx_write_extra_fields($_POST) {
+	$extra_fields = '';
+	foreach($_POST as $nome_campo => $valor){
+		if (strcspn($nome_campo, '0123456789') != strlen($nome_campo)) {
+			$extra_fields .= "<p>" . $nome_campo . ": " . $valor . "</p>";
+		}
+	} 
+	return $extra_fields;
+}
 
 //add_filter('show_admin_bar', '__return_false');

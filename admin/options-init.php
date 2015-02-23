@@ -374,6 +374,15 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                     ),
 
                     array(
+                        'id'        => 'opt-select-contact-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página de Contato', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página criada para contato para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
                         'id'        => 'opt-select-booking-page',
                         'type'      => 'select',
                         'data'      => 'page',
@@ -418,7 +427,53 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
                     ),
 
+                    array(
+                        'id'        => 'opt-select-moveis-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Guarda Móveis', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-documentos-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Guarda Documentos', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-estoques-page',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Guarda Estoques', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
                 ),
+            );
+
+            $this->sections[] = array(
+                'title'     => __('Contato', 'redux-framework-demo'),
+                'desc'      => __('Insira novos campos para o formulário de contato.', 'redux-framework-demo'),
+                'icon'      => 'el-icon-livejournal',
+                // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                'fields'    => array(
+
+                    array(
+                        'id'=> 'opt-contact-add-fields',
+                        'type' => 'multi_text',
+                        'title' => __('Campos Adicionais', 'redux-framework-demo'),
+                        'subtitle'=> __('Entre com campos adicionais para o formulário de contato', 'redux-framework-demo'),
+                        'validate' => 'no_special_chars',
+                    ),
+
+                ),
+
             );
 
             $this->sections[] = array(

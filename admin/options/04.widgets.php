@@ -25,16 +25,21 @@ class inkidWidgetFormContato extends WP_Widget {
 		
 		echo "<span>" . $instancia['descricao_contato'] . "</span>"; ?>
 
-		<form>
+		<form id="widgetFormContato" class="form-contato form-widget" name="widgetFormContato" method="post" action="<?php echo return_contact_page(); ?>">
 			<p><label for="FormWidgetName">Nome</label>
-			<input type="text" name="nome" id="FormWidgetName"></p>
+			<input type="text" name="campo_nome" id="FormWidgetName" required></p>
 			<p><label for="FormWidgetMail">E-mail</label>
-			<input type="text" name="mail" id="FormWidgetMail"></p>
-			<p><label for="FormWidgetFone">Telefone</label>
-			<input type="text" name="fone" id="FormWidgetFone"></p>
+			<input type="email" name="campo_email" id="FormWidgetMail" required></p>
+			<?php chx_newinput_contact(); ?>
+			<p><label for="FormWidgetMail">Unidade</label>
+			<select name="campo_unidade" required>
+  				<option value="SP">São Paulo</option>
+  				<option value="RJ">Rio de Janeiro</option>
+  				<option value="Campinas">Campinas</option>
+			</select></p>
 			<p><label for="FormWidgetMessage">Mensagem</label>
-			<textarea type="text" name="mensagem" id="FormWidgetMessage"></textarea></p>
-			<p style="text-align:right"><input class="botao" type="submit" name="envia_widget" value="<?php echo $instancia['botao_contato']; ?>"></p>
+			<textarea type="text" name="campo_mensagem" id="FormWidgetMessage"></textarea></p>
+			<p style="text-align:right"><input class="botao" type="submit" name="envia_mail" value="<?php echo $instancia['botao_contato']; ?>"></p>
 		</form>
 
 		<?php echo $argumentos['after_widget'];
