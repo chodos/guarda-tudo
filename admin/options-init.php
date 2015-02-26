@@ -454,6 +454,33 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
                     ),
 
+                    array(
+                        'id'        => 'opt-select-calculadora-saopaulo',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Calculadora São Paulo', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links e cálculos funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-calculadora-campinas',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Calculadora Campinas', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links e cálculos funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
+                    array(
+                        'id'        => 'opt-select-calculadora-riojaneiro',
+                        'type'      => 'select',
+                        'data'      => 'page',
+                        'title'     => __('Página Calculadora Rio de Janeiro', 'redux-framework-demo'),
+                        'subtitle'  => __('É necessário escolher a página para que os links e cálculos funcionem corretamente.', 'redux-framework-demo'),
+                        'desc'      => __('Procure a página criada pelo título', 'redux-framework-demo'),
+                    ),
+
                 ),
             );
 

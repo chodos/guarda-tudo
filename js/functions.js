@@ -1,8 +1,21 @@
 /**
- * Functionality specific to Twenty Thirteen.
+ * Functionality specific to theme Storage package InkID.
  *
  * Provides helper functions to enhance the theme experience.
  */
+
+ function exibeBox(box) {
+	//var exibido = "box1";
+
+	document.getElementById("box1").style.display = "none";
+	document.getElementById("box2").style.display = "none";
+	document.getElementById("box5").style.display = "none";
+	document.getElementById("box75").style.display = "none";
+	document.getElementById("box15").style.display = "none";
+	document.getElementById("box21").style.display = "none";
+	document.getElementById(box).style.display = "block";
+	//exibido = box;
+}
 
 ( function( $ ) {
 	var body    = $( 'body' ),

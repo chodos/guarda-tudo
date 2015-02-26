@@ -577,6 +577,14 @@ function inkid_shortcodescripts() {
 }
 add_action( 'wp_enqueue_scripts', 'inkid_shortcodescripts', 10 );
 
+add_action( 'wp_enqueue_scripts', 'inkid_load_calculadorascript' );
+
+function inkid_load_calculadorascript() {
+
+  wp_register_script( 'calculadora-script', get_template_directory_uri() . '/js/calculadora.js', array(), '1.0.0', true);
+
+}
+
 /************
 *
 * Including new version JQuery
@@ -1086,14 +1094,35 @@ function chx_newinput_contact() {
 	}
 }
 
-function chx_write_extra_fields($_POST) {
+function chx_write_extra_fields($post) {
 	$extra_fields = '';
-	foreach($_POST as $nome_campo => $valor){
-		if (strcspn($nome_campo, '0123456789') != strlen($nome_campo)) {
+	foreach ( $post as $nome_campo => $valor ){
+		if ( strcspn($nome_campo, '0123456789' ) != strlen( $nome_campo) ) {
 			$extra_fields .= "<p>" . $nome_campo . ": " . $valor . "</p>";
 		}
 	} 
 	return $extra_fields;
+}
+
+//função irá verificar a qual unidade a pagina da calculadora está relacionada para repassar ao JS e fazer o calculo conforme os valores da unidade
+function chx_return_page_calculdora($page_id) {
+	global $opt_select_calculadora_saopaulo;
+	global $opt_select_calculadora_campinas;
+	global $opt_select_calculadora_riojaneiro;
+
+	if ($page_id == $opt_select_calculadora_saopaulo) {
+		return "SP";
+	}
+	else {
+		if ($page_id == $opt_select_calculadora_campinas) {
+			return "CA";
+		}
+		else {
+			if ($page_id == $opt_select_calculadora_riojaneiro) {
+				return "RJ";
+			}
+		}
+	}
 }
 
 //add_filter('show_admin_bar', '__return_false');

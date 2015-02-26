@@ -4395,3 +4395,216 @@ ul.nav-footer .children {
     column-count: 2;
     column-gap: 20px;
 }
+
+/*
+ * Guia de Tamanhos
+ * -----------------------------------------------------------------------
+ */
+
+ #box-precos {
+	float:left;
+	width:95%;
+	margin:20px 2.5%;
+}
+
+#box-precos .menu-medidas {
+	float:left;
+	width:16%;
+}
+
+#box-precos .menu-medidas .itens {
+	float:left;
+	width:100%;
+	padding:12% 5%;
+	background:#265978;
+	color:#FFF;
+	font-size:1.45rem;
+	text-align:center;
+	margin-bottom:2px;
+	display:block;
+	cursor:pointer;
+}
+
+#box-precos .menu-medidas .itens:hover {
+	background:#163547;
+}
+
+#box-precos .conteudo-box {
+	float:left;
+	width:82%;
+	text-align:center;
+}
+
+#box-precos .conteudo-box p {
+	margin-bottom: 10px;
+}
+
+#box-precos .conteudo-box img {
+	margin-top:20px;
+	max-width:100%;
+}
+
+#box-precos .conteudo-box .table-box {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 2px 0px;
+}
+
+.conteudo-box .volume-box{
+	width:25%;
+	background:#36A6A8;
+	color:#FFF;
+	text-align:center;
+	line-height:1.6rem;
+	padding:1.5%;
+	margin-right:2px;
+	display: table-cell;
+}
+
+.conteudo-box .volume-box.capacidade {
+	width: 73.5%;
+}
+
+
+/*
+ * Calculadora de Box
+ * -----------------------------------------------------------------------
+ */
+
+.calculo_1 ul.calculo_menu{margin: 0px !important;}
+
+.calculo_1 ul.calculo_menu li{
+	list-style-type: none;
+	float: left;
+}
+
+.calculo_1 ul.calculo_menu li a{
+	display: block;
+	float: left;
+	padding: 2px 5px;
+	border: 1px solid #3E6E8B;
+	text-decoration: none;
+	color: #3E6E8B;
+}
+
+.calculo_1 ul.calculo_menu li a.ativo{background: #3E6E8B;color: #fff;}
+
+.calculo_1 .div_calculos{
+	width: 100%;
+	height: auto;
+	float: left;
+	clear: both;
+}
+
+.calculo_1 .div_calculos ul{
+	position: relative;
+}
+
+.calculo_1 .div_calculos li{
+	margin-right: 3%;
+}
+
+.calculo_1 ul {
+	list-style-type: none;
+	float: left;
+	width: 100%;
+	padding: 0;
+}
+
+.calculo_1 .escondido {display: none;}
+
+.calculo_1 ul li {
+	float: left;
+	margin: 0px 4px 5px 0px;
+	line-height: 20px;
+}
+
+.calculo_1 ul li label {
+	display: block;
+	float: left;
+	width: 250px;
+	padding: 6px 0;
+}
+
+.calculo_1 ul li input[type=text]{
+	width: 48px;
+	border: 2px solid rgb(62, 110, 139);
+	text-align: center;
+}
+
+*html .calculo_1 ul li input.camp_obj{
+	width: 32px;
+	height: 22px;
+}
+
+#outros{
+	width: 100%;
+	float: left;
+}
+
+#outros ul{
+	padding: 0px !important;
+	margin: 0px !important;
+	float: left;
+}
+
+#outros li{
+	float: left;
+	width: 20%;
+	list-style-type: none;
+	margin: 1% 0;
+}
+
+#outros li.conta{
+	text-align: center;
+	line-height: 80px;
+	font-size: 18px !important;
+	color: #144461;
+	width: auto;
+	margin: 0 1.5%;
+}
+
+#outros li label {
+	display: block;
+	background: #E6E8E9;
+	line-height: 24px;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 10px;
+	width: 100% !important;
+}
+
+#outros li input {
+	width: 100%;
+}
+
+#outros .camp_obj.total {
+	width: 70%;
+}
+
+ul.cubagem{
+	width: 100%;/*910px - 150px*/
+	float: left;
+	color: #144461;
+	font-size: 16px !important;
+	font-weight: bold;
+	padding: 12px 0;
+	margin-bottom: 20px;
+	border-top: 2px solid #144461;
+	border-bottom: 2px solid #144461;
+}
+
+ul.cubagem li {
+	list-style-type: none;
+	float: left;
+	width: 33%;
+	text-align: center;
+}
+
+ul.cubagem li input {
+	width: 72px;
+	margin-right: 10px;
+	background-color: transparent; 
+	border-color: #144461;
+	text-align: center;
+}

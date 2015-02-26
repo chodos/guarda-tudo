@@ -36,6 +36,9 @@ function inkid_reduxvariables() {
 	$GLOBALS['opt_select_moveis_page']    	           		= inkid_var ( 'opt-select-moveis-page' );
 	$GLOBALS['opt_select_documentos_page']    	          	= inkid_var ( 'opt-select-documentos-page' );
 	$GLOBALS['opt_select_estoques_page']    	           	= inkid_var ( 'opt-select-estoques-page' );
+	$GLOBALS['opt_select_calculadora_saopaulo']    	        = inkid_var ( 'opt-select-calculadora-saopaulo' );
+	$GLOBALS['opt_select_calculadora_campinas']    	        = inkid_var ( 'opt-select-calculadora-campinas' );
+	$GLOBALS['opt_select_calculadora_riojaneiro']    	    = inkid_var ( 'opt-select-calculadora-riojaneiro' );
 	
 	$GLOBALS['opt_contact_add_fields']    	           		= inkid_var ( 'opt-contact-add-fields' );
 
